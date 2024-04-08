@@ -8,11 +8,48 @@
 \begin{document}
 
 \maketitle
-
+    
 \section{Bad Multiplication}
     \begin{enumerate}
-        \item tes
-        \item test
+        \item 
+        \item 
+        \item
+        \item
+        \item
+        \item
+        \item
     \end{enumerate}
 
+\section{Okay? Multiplaction}
+
+\section{Lighting Games}
+    \textbf{Game 1:} A row of five light bulbs is controlled by five switches (Labeled A,B,C,D,E). Each switch changes
+    the state (on or off) of the light directly above it and the states of the lights immediately adjacent to the
+    left and right. Suppose that initially, all the lights are off. If we want to turn the first, third and fifth lights
+    to be on, we can press $B \longrightarrow C \longrightarrow D$ (or $A \longrightarrow C \longrightarrow E$).
+        \begin{enumerate}
+            \item
+            \item
+            \item  words words
+                \begin{enumerate}
+                    \item[(a)]    
+                    \item[(b)]
+                \end{enumerate}
+        \end{enumerate}
+    \textbf{Game 2:} A row of three light bulbs is controlled by three switches (Labeled $A$, $B$, $C$). Each switch changes
+    the state of the bulb directly above it and immediately adjacent to the left and right to off $\longrightarrow$ red $\longrightarrow$ green
+    $\longrightarrow$ off.
+        \begin{enumerate}
+            \item
+            \item
+            \item
+        \end{enumerate}
+    \textbf{Game 3:} Nine squares, in a $3 \times 3$ array are either red, green, or off. When you push a square, it changes
+    its own state and states of some of its neighbors in the following order off $\longrightarrow$ red $\longrightarrow$ green $\longrightarrow$ off. The object
+    of the game is to turn all nine squares off. The possible switches are shown below.
+        \begin{enumerate}
+            \item
+            \item
+            \item
+        \end{enumerate}
 \end{document}
