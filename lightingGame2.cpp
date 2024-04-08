@@ -151,6 +151,7 @@ void randConfig(int (&a)[3], int (&b)[3], int (&c)[3])
 	
     // Test Cases to make sure the order of the arrays are always:
     // [0, 1, 2] , [1, 2, 0], or [2, 0, 1]
+    cout << "Initial Configuration: "<< endl;
     cout << "A" << endl;
     for(int i = 0; i<3; i++)
     {
