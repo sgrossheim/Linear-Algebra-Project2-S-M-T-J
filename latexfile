@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{331 Project 2}
+\author{Group 4}
+\date{April 21, 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Bad Multiplication}
+    \begin{enumerate}
+        \item tes
+        \item test
+    \end{enumerate}
+
+\end{document}
