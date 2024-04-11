@@ -116,12 +116,12 @@ void PrintMatrixB(int matrixB[][MAX], int& r2,int& c2){
 
 void CircleOperation(int matrixA[][MAX], int matrixB[][MAX], int& r1, int& c1, int& r2, int & c2){
 	int r, c;
-	int matrixC[r][c];
+	int matrixC[MAX][MAX];
 	cout << "Doing circle operation..." << endl << endl;
 	if((r1 == r2) & (c1 == c2)){
 		r = r1;
 		c = c1;
-		matrixC[r][c];
+		matrixC[MAX][MAX];
 		for(int i = 0; i < r; i++){
 			for(int j = 0; j < c; j++){
 				matrixC[i][j] = matrixA[i][j] * matrixB[i][j];
@@ -138,6 +138,4 @@ void CircleOperation(int matrixA[][MAX], int matrixB[][MAX], int& r1, int& c1, i
 	}else {
 		cout << "Cannot calculate. Matrices must be the same size. Returning to menu" << endl;		
 	} 
-
 }
-
