@@ -1,0 +1,535 @@
+#include <iostream>
+#include <ctime>
+#include <random>
+using namespace std;
+
+//Sarah Grossheim
+//Math Project 2
+//Linear Algebra
+
+// Function declarations
+void randConfig(int (&a)[3], int (&b)[3], int (&c)[3],int (&d)[3], int (&e)[3], int (&f)[3],int(&g)[3],int (&h)[3], int (&i)[3]);
+void printStates(int a[], int b[], int c[], int d[], int e[], int f[], int g[], int h[], int i[]);
+char menu();
+void swap(int array[], int size);
+
+int main()
+{
+	// Declare switches & variables
+	int array1[] = {0, 1, 2};
+	int array2[] = {0, 1, 2};
+	int array3[] = {0, 1, 2};
+	int array4[] = {0, 1, 2};
+	int array5[] = {0, 1, 2};
+	int array6[] = {0, 1, 2};
+	int array7[] = {0, 1, 2};
+	int array8[] = {0, 1, 2};
+	int array9[] = {0, 1, 2};
+	int choice;
+	
+	// Random configuration
+	randConfig(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+	
+	// Print states
+	printStates(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+	
+	// Display menu
+	choice = menu();
+	
+	while(choice != 0)
+	{
+		if(choice == 1)
+		{
+			swap(array1, 3);
+			swap(array2, 3);
+			swap(array4, 3);
+			swap(array5, 3);
+			printStates(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+			choice = menu();
+		}
+		else if(choice == 2)
+		{
+			swap(array1, 3);
+			swap(array2, 3);
+			swap(array3, 3);
+			printStates(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+			choice = menu();
+		}
+		else if(choice == 3)
+		{
+			swap(array2, 2);
+			swap(array3, 3);
+			swap(array5, 5);
+			swap(array6, 6);
+			printStates(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+			choice = menu();
+		}
+		else if(choice == 4)
+		{
+			swap(array1, 3);
+			swap(array4, 3);
+			swap(array7, 3);
+			printStates(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+			choice = menu();
+		}
+		else if(choice == 5)
+		{
+			swap(array2, 3);
+			swap(array4, 3);
+			swap(array5, 3);
+			swap(array6, 3);
+			swap(array8, 3);
+			printStates(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+			choice = menu();
+		}
+		else if(choice == 6)
+		{
+			swap(array3, 3);
+			swap(array6, 3);
+			swap(array9, 3);
+			printStates(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+			choice = menu();
+		}
+		else if(choice == 7)
+		{
+			swap(array4, 3);
+			swap(array5, 3);
+			swap(array7, 3);
+			swap(array8, 3);
+			printStates(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+			choice = menu();
+		}
+		else if(choice == 8)
+		{
+			swap(array7, 3);
+			swap(array8, 3);
+			swap(array9, 3);
+			printStates(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+			choice = menu();
+		}
+		else if(choice == 9)
+		{
+			swap(array5, 3);
+			swap(array6, 3);
+			swap(array8, 3);
+			swap(array9, 3);
+			printStates(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+			choice = menu();
+		}
+		else
+		{
+			cout << "Invalid Menu selection. Try again." << endl << endl;
+			printStates(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+			menu();
+		}
+	}
+	
+	return 0;
+	
+}
+
+// function to swap the array's orders
+void randConfig(int (&a)[3], int (&b)[3], int (&c)[3],int (&d)[3], int (&e)[3], int (&f)[3],int(&g)[3],int (&h)[3], int (&i)[3])
+{
+	// Generate a random number between 0 and 2 to determine what 
+	// valid pattern the array could be
+	srand(time(0));
+    int randA = rand() % 3;
+    int randB = rand() % 3;
+    int randC = rand() % 3;
+    int randD = rand() % 3;
+    int randE = rand() % 3;
+    int randF = rand() % 3;
+    int randG = rand() % 3;
+    int randH = rand() % 3;
+    int randI = rand() % 3;
+    int validPatterns1[] = {0, 1, 2};
+    int validPatterns2[] = {1, 2, 0};
+    int validPatterns3[] = {2, 0, 1};
+    
+    // Change A
+    if(randA == 0)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		a[i] = validPatterns1[i];
+		}
+	}
+	else if(randA == 1)
+	{
+		for(int i = 0; i<3; i++)
+    	{
+    		a[i] = validPatterns2[i];
+		}
+	}
+    else if(randA == 2)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		a[i] = validPatterns3[i];
+		}
+	}
+	
+    // Change B
+    if(randB == 0)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		b[i] = validPatterns1[i];
+		}
+	}
+	else if(randB == 1)
+	{
+		for(int i = 0; i<3; i++)
+    	{
+    		b[i] = validPatterns2[i];
+		}
+	}
+    else if(randB == 2)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		b[i] = validPatterns3[i];
+		}
+	}
+	
+	// Change C
+    if(randC == 0)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		c[i] = validPatterns1[i];
+		}
+	}
+	else if(randC == 1)
+	{
+		for(int i = 0; i<3; i++)
+    	{
+    		c[i] = validPatterns2[i];
+		}
+	}
+    else if(randC == 2)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		c[i] = validPatterns3[i];
+		}
+	}
+	
+	// Change D
+    if(randD == 0)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		d[i] = validPatterns1[i];
+		}
+	}
+	else if(randD == 1)
+	{
+		for(int i = 0; i<3; i++)
+    	{
+    		d[i] = validPatterns2[i];
+		}
+	}
+    else if(randD == 2)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		d[i] = validPatterns3[i];
+		}
+	}
+	// Change E
+    if(randE == 0)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		e[i] = validPatterns1[i];
+		}
+	}
+	else if(randE == 1)
+	{
+		for(int i = 0; i<3; i++)
+    	{
+    		e[i] = validPatterns2[i];
+		}
+	}
+    else if(randE == 2)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		e[i] = validPatterns3[i];
+		}
+	}
+	// Change F
+    if(randF == 0)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		f[i] = validPatterns1[i];
+		}
+	}
+	else if(randF == 1)
+	{
+		for(int i = 0; i<3; i++)
+    	{
+    		f[i] = validPatterns2[i];
+		}
+	}
+    else if(randF == 2)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		f[i] = validPatterns3[i];
+		}
+	}
+	// Change G
+    if(randG == 0)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		g[i] = validPatterns1[i];
+		}
+	}
+	else if(randG == 1)
+	{
+		for(int i = 0; i<3; i++)
+    	{
+    		g[i] = validPatterns2[i];
+		}
+	}
+    else if(randG == 2)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		g[i] = validPatterns3[i];
+		}
+	}
+	// Change H
+    if(randH == 0)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		h[i] = validPatterns1[i];
+		}
+	}
+	else if(randH == 1)
+	{
+		for(int i = 0; i<3; i++)
+    	{
+    		h[i] = validPatterns2[i];
+		}
+	}
+    else if(randH == 2)
+    {
+    	for(int i = 0; i<3; i++)
+    	{
+    		h[i] = validPatterns3[i];
+		}
+	}
+	// Change I
+    if(randI == 0)
+    {
+    	for(int j = 0; j<3; j++)
+    	{
+    		i[j] = validPatterns1[j];
+		}
+	}
+	else if(randI == 1)
+	{
+		for(int j = 0; j<3; j++)
+    	{
+    		i[j] = validPatterns2[j];
+		}
+	}
+    else if(randI == 2)
+    {
+    	for(int j = 0; j<3; j++)
+    	{
+    		i[j] = validPatterns3[j];
+		}
+	}
+}
+
+// Function for printing the current states of switches
+void printStates(int a[], int b[], int c[], int d[], int e[], int f[], int g[], int h[], int i[])
+{
+	string colorA;
+	string colorB;
+	string colorC;
+	string colorD;
+	string colorE;
+	string colorF;
+	string colorG;
+	string colorH;
+	string colorI;
+	cout << "Current state of switches: " << endl;
+	cout << "1          2          3" << endl;
+	// Check for array A
+	if(a[0] == 0)
+	{
+		colorA = "off";
+	}
+	else if(a[0] == 1)
+	{
+		colorA = "red";
+	}	
+	else if(a[0] == 2)
+	{
+		colorA = "green";
+	}
+	
+	// Check for array B
+	if(b[0] == 0)
+	{
+		colorB = "off";
+	}
+	else if(b[0] == 1)
+	{
+		colorB = "red";
+	}	
+	else if(b[0] == 2)
+	{
+		colorB = "green";
+	}
+	
+	// Check for array C
+	if(c[0] == 0)
+	{
+		colorC = "off";
+	}
+	else if(c[0] == 1)
+	{
+		colorC = "red";
+	}	
+	else if(c[0] == 2)
+	{
+		colorC = "green";
+	}
+	cout << colorA << "       " << colorB << "       " << colorC << endl;
+	
+	cout << "4          5          6" << endl;
+	
+	// Check for array D
+	if(d[0] == 0)
+	{
+		colorD = "off";
+	}
+	else if(d[0] == 1)
+	{
+		colorD = "red";
+	}	
+	else if(d[0] == 2)
+	{
+		colorD = "green";
+	}
+	
+	// Check for array E
+	if(e[0] == 0)
+	{
+		colorE = "off";
+	}
+	else if(e[0] == 1)
+	{
+		colorE = "red";
+	}	
+	else if(e[0] == 2)
+	{
+		colorE = "green";
+	}
+	
+	// Check for array F
+	if(f[0] == 0)
+	{
+		colorF = "off";
+	}
+	else if(f[0] == 1)
+	{
+		colorF = "red";
+	}	
+	else if(f[0] == 2)
+	{
+		colorF = "green";
+	}
+	cout << colorD << "       " << colorE << "       " << colorF << endl;
+	
+	cout << "7          8          9" << endl;
+	
+	// Check for array G
+	if(g[0] == 0)
+	{
+		colorG = "off";
+	}
+	else if(g[0] == 1)
+	{
+		colorG = "red";
+	}	
+	else if(g[0] == 2)
+	{
+		colorG = "green";
+	}
+	
+	// Check for array H
+	if(h[0] == 0)
+	{
+		colorH = "off";
+	}
+	else if(h[0] == 1)
+	{
+		colorH = "red";
+	}	
+	else if(h[0] == 2)
+	{
+		colorH = "green";
+	}
+	
+	// Check for array I
+	if(i[0] == 0)
+	{
+		colorI = "off";
+	}
+	else if(i[0] == 1)
+	{
+		colorI = "red";
+	}	
+	else if(i[0] == 2)
+	{
+		colorI = "green";
+	}
+	cout << colorG << "       " << colorH << "       " << colorI << endl;
+}
+
+// function for menu and selection
+char menu(){
+	int choice;
+	
+	cout << "1 - Switch 1" << endl;
+	cout << "2 - Switch 2" << endl;
+	cout << "3 - Switch 3" << endl;
+	cout << "4 - Switch 4" << endl;
+	cout << "5 - Switch 5" << endl;
+	cout << "6 - Switch 6" << endl;
+	cout << "7 - Switch 7" << endl;
+	cout << "8 - Switch 8" << endl;
+	cout << "9 - Switch 9" << endl;
+	cout << "0 - Quit" << endl << endl;
+	
+	cout << "Enter Menu Selection: ";
+	cin >> choice;
+	cout << endl;	
+	
+	return choice;
+}
+
+// function to swap states
+void swap(int array[], int size)
+{
+	// Save the first element
+	int temp = array[0];
+	for(int i = 0; i < size - 1; i++)
+	{
+		// Shift elements to the left
+		array[i] = array[i+1];
+	}
+	// assign the saved element to the last position
+	array[size-1] = temp;
+}
