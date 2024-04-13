@@ -11,6 +11,7 @@ void FillMatrixB(int matrixB[][MAX], int& r2, int& c2);
 void PrintMatrixA(int matrixA[][MAX], int& r1,int& c1);
 void PrintMatrixB(int matrixB[][MAX], int& r2,int& c2);
 void CircleOperation(int matrixA[][MAX], int matrixB[][MAX], int& r1, int& c1, int& r2, int & c2);
+void CrossOperation(int matrixA[][MAX], int matrixB[][MAX], int matrixC[][MAX], int& r1, int& c1, int& r2, int & c2);
 // DRIVER ------------------
 int main(){
 	int choice = GetChoice();
@@ -34,6 +35,9 @@ int main(){
 		else if(choice == 5){
 			CircleOperation(matrixA, matrixB, r1, c1, r2, c2);
 		}
+		else if(choice == 6){
+			CrossOperation(matrixA, matrixB, matrixC, r1, c1, r2, c2);
+		}
         choice = GetChoice();
     }
     return 0;
@@ -54,6 +58,7 @@ int GetChoice(){
     cout << "3: Print Matrix A" << endl;
     cout << "4: Print Matrix B" << endl;
     cout << "5: Compute Circle Operation" << endl;
+    cout << "6: Compute Cross Operation" << endl;
     cout << "0: Stop" << endl;
 
     cin >> result;
@@ -128,7 +133,7 @@ void CircleOperation(int matrixA[][MAX], int matrixB[][MAX], int& r1, int& c1, i
 			}
 		}
 	cout << "Matrix after circle operation:" << endl;
-		cout << "New matrix" << endl;
+	cout << "New matrix" << endl;
 	for (int i = 0; i < r; i++){
 		for(int j = 0; j < c; j++){
 			cout << matrixC[i][j] << " ";
@@ -139,3 +144,28 @@ void CircleOperation(int matrixA[][MAX], int matrixB[][MAX], int& r1, int& c1, i
 		cout << "Cannot calculate. Matrices must be the same size. Returning to menu" << endl;		
 	} 
 }
+
+void CrossOperation(int matrixA[][MAX], int matrixB[][MAX], int matrixC[][MAX], int& r1, int& c1) {
+	
+	cout << "Doing Cross Operation..." << endl << endl;
+    cout << "Result of A ⊕ B:" << endl;
+    for (int i = 0; i < r1; ++i) {
+        for (int j = 0; j < c1; ++j) {
+            for (int k = 0; k < r1; ++k) {
+                for (int l = 0; l < c1; ++l) {
+                    matrixC[i * r1 + k][j * c1 + l] = matrixA[i][j] * matrixB[k][l];
+                }
+            }
+        }
+    }
+    
+    cout << "Matrix after cross operation:" << endl;
+    cout << "New matrix" << endl;
+	for (int i = 0; i < r1; i++){
+		for(int j = 0; j < c1; j++){
+			cout << matrixC[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+
