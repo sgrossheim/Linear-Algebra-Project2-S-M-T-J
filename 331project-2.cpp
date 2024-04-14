@@ -11,12 +11,13 @@ void FillMatrixB(int matrixB[][MAX], int& r2, int& c2);
 void PrintMatrixA(int matrixA[][MAX], int& r1,int& c1);
 void PrintMatrixB(int matrixB[][MAX], int& r2,int& c2);
 void CircleOperation(int matrixA[][MAX], int matrixB[][MAX], int& r1, int& c1, int& r2, int & c2);
-void CrossOperation(int matrixA[][MAX], int matrixB[][MAX], int matrixC[][MAX], int& r1, int& c1, int& r2, int & c2);
+void CrossOperation(int matrixA[][MAX], int matrixB[][MAX], int matrixC[][MAX], int& r1, int& c1);
 // DRIVER ------------------
 int main(){
 	int choice = GetChoice();
 	int matrixA[MAX][MAX];
 	int matrixB[MAX][MAX];
+	int matrixC[MAX][MAX];
 	int r1,c1,r2,c2;
 	
 	    while (choice != 0){
@@ -36,7 +37,7 @@ int main(){
 			CircleOperation(matrixA, matrixB, r1, c1, r2, c2);
 		}
 		else if(choice == 6){
-			CrossOperation(matrixA, matrixB, matrixC, r1, c1, r2, c2);
+			CrossOperation(matrixA, matrixB, matrixC, r1, c1);
 		}
         choice = GetChoice();
     }
@@ -146,9 +147,10 @@ void CircleOperation(int matrixA[][MAX], int matrixB[][MAX], int& r1, int& c1, i
 }
 
 void CrossOperation(int matrixA[][MAX], int matrixB[][MAX], int matrixC[][MAX], int& r1, int& c1) {
+	int newRow = r1 * r1;
+	int newCol = c1 * c1;
 	
 	cout << "Doing Cross Operation..." << endl << endl;
-    cout << "Result of A ⊕ B:" << endl;
     for (int i = 0; i < r1; ++i) {
         for (int j = 0; j < c1; ++j) {
             for (int k = 0; k < r1; ++k) {
@@ -161,8 +163,8 @@ void CrossOperation(int matrixA[][MAX], int matrixB[][MAX], int matrixC[][MAX], 
     
     cout << "Matrix after cross operation:" << endl;
     cout << "New matrix" << endl;
-	for (int i = 0; i < r1; i++){
-		for(int j = 0; j < c1; j++){
+	for (int i = 0; i < newRow; i++){
+		for(int j = 0; j < newCol; j++){
 			cout << matrixC[i][j] << " ";
 		}
 		cout << endl;
