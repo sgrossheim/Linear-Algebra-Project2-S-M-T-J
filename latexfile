@@ -11,10 +11,10 @@
     
 \section{Bad Multiplication}
     \begin{enumerate}
-        \item 
-        \item 
-        \item
-        \item
+        \item Write a program for each new operation. 
+        \item Complete and prove the following: "A matrix $A$ has an inverse under $\circ$ if and only if $\mathellipsis$" 
+        \item Show that $(A \oplus B)$ is invertible if and only if $A$ and $B$ are both invertible. Give an explicit formula for $(A \oplus B)^{-1}$.
+        \item Show that both products are distributive over addition. 
         \item Prove that $(A \oplus B)^{T} = A^{T} \oplus B^{T}$.
             \begin{proof}
                 To show that $(A \oplus B)^{T} = A^{T} \oplus B^{T}$, let's first evaluate the right side of the equation,
@@ -182,11 +182,17 @@
                     \end{center}
                 Thus, $(A \oplus B)^{T} = A^{T} \oplus B^{T}$.\\
             \end{proof}
-        \item
-        \item
+        \item Find and prove an explicit formula for $|A \oplus B|$.
+        \item Prove that $(A \oplus B) \circ (C \oplus D) = (A \circ C) \oplus (B \circ D)$ for any matrices $A$, $B$, $C$, and $D$.
     \end{enumerate}
 
-\section{Okay? Multiplaction}
+\section{Okay? Multiplication}
+
+    Find all matrices $B$ that commute with 
+    $A = \begin{bmatrix}
+        1 & 3 \\
+        2 & 6
+    \end{bmatrix}$.
 
 \section{Lighting Games}
     \textbf{Game 1:} A row of five light bulbs is controlled by five switches (Labeled A,B,C,D,E). Each switch changes
