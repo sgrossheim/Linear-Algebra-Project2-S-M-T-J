@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\usepackage{graphicx, amsthm, dsfont, amsmath, amssymb} % Required for inserting images
 
 \title{331 Project 2}
 \author{Group 4}
@@ -15,7 +15,173 @@
         \item 
         \item
         \item
-        \item
+        \item Prove that $(A \oplus B)^{T} = A^{T} \oplus B^{T}$.
+            \begin{proof}
+                To show that $(A \oplus B)^{T} = A^{T} \oplus B^{T}$, let's first evaluate the right side of the equation,
+                    \begin{center}
+                        \begin{align*}
+                             A^{T} \oplus B^{T} &=
+                            \begin{bmatrix}
+                                a_{11} & \cdots & a_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                a_{m1} & \cdots & a_{mn} 
+                            \end{bmatrix} ^{T}
+                            \oplus 
+                            \begin{bmatrix}
+                                b_{11} & \cdots & b_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                b_{m1} & \cdots & b_{mn}                                
+                            \end{bmatrix} ^{T}
+                            \\
+                            A^{T} \oplus B^{T} &=
+                            \begin{bmatrix}
+                                a_{11} & \cdots & a_{m1} \\
+                                \vdots & \ddots & \vdots \\
+                                a_{1n} & \cdots & a_{mn} 
+                            \end{bmatrix}
+                            \oplus
+                            \begin{bmatrix}
+                                b_{11} & \cdots & b_{n1} \\
+                                \vdots & \ddots & \vdots \\
+                                b_{1m} & \cdots & b_{mn}                                
+                            \end{bmatrix}
+                            \\
+                            A^{T} \oplus B^{T} &= 
+                            \begin{bmatrix}
+                                a_{11} \begin{bmatrix}
+                                            b_{11} & \cdots & b_{n1} \\
+                                            \vdots & \ddots & \vdots \\
+                                            b_{1m} & \cdots & b_{mn}
+                                        \end{bmatrix}
+                                & \cdots 
+                                & a_{m1}   \begin{bmatrix}
+                                                b_{11} & \cdots & b_{n1} \\
+                                                \vdots & \ddots & \vdots \\
+                                                b_{1m} & \cdots & b_{mn}                 
+                                            \end{bmatrix}
+                                \\
+                                \vdots & \ddots & \vdots \\
+                                a_{1n}  \begin{bmatrix}
+                                            b_{11} & \cdots & b_{n1} \\
+                                            \vdots & \ddots & \vdots \\
+                                            b_{1m} & \cdots & b_{mn}         
+                                        \end{bmatrix}
+                                & \cdots 
+                                & a_{mn}    \begin{bmatrix}
+                                                b_{11} & \cdots & b_{n1} \\
+                                                \vdots & \ddots & \vdots \\
+                                                b_{1m} & \cdots & b_{mn}
+                                            \end{bmatrix}
+                                \\
+                            \end{bmatrix}
+                            \\
+                            A^{T} \oplus B^{T} &=
+                            \begin{bmatrix}
+                                a_{11}B^{T} & \cdots & a_{m1}B^{T} \\
+                                \vdots & \ddots & \vdots \\
+                                a_{1n}B^{T} & \cdots & a_{mn}B^{T} \\
+                            \end{bmatrix}
+                            \\
+                        \end{align*}
+                    \end{center}
+                Now for the left side, 
+                    \begin{center}
+                        \begin{align*}
+                            (A \oplus B)^{T} &= 
+                            (\begin{bmatrix}
+                                a_{11} & \cdots & a_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                a_{m1} & \cdots & a_{mn}                                
+                            \end{bmatrix}
+                            \oplus 
+                            \begin{bmatrix}
+                                b_{11} & \cdots & b_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                b_{m1} & \cdots & b_{mn}                                
+                            \end{bmatrix}) ^{T}
+                            \\
+                           (A \oplus B)^{T} &=
+                            (\begin{bmatrix}
+                                a_{11} \begin{bmatrix}
+                                            b_{11} & \cdots & b_{1n} \\
+                                            \vdots & \ddots & \vdots \\
+                                            b_{m1} & \cdots & b_{mn}
+                                        \end{bmatrix}
+                                & \cdots 
+                                & a_{1n}   \begin{bmatrix}
+                                                b_{11} & \cdots & b_{1n} \\
+                                                \vdots & \ddots & \vdots \\
+                                                b_{m1} & \cdots & b_{mn}                 
+                                            \end{bmatrix}
+                                \\
+                                \vdots & \ddots & \vdots \\
+                                a_{m1}  \begin{bmatrix}
+                                            b_{11} & \cdots & b_{1n} \\
+                                            \vdots & \ddots & \vdots \\
+                                            b_{m1} & \cdots & b_{mn}         
+                                        \end{bmatrix}
+                                & \cdots 
+                                & a_{mn}    \begin{bmatrix}
+                                                b_{11} & \cdots & b_{1n} \\
+                                                \vdots & \ddots & \vdots \\
+                                                b_{m1} & \cdots & b_{mn}
+                                            \end{bmatrix}
+                                \\
+                            \end{bmatrix})^{T}
+                            \\
+                            (A \oplus B)^{T} &= 
+                            (\begin{bmatrix}
+                                a_{11}b_{11} & \cdots & a_{1n}b_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                a_{m1}b_{m1} & \cdots & a_{mn}b_{mn} 
+                            \end{bmatrix})^{T}
+                            \\
+                            (A \oplus B)^{T} &=
+                            \begin{bmatrix}
+                                a_{11}b_{11} & \cdots & a_{m1}b_{m1} \\
+                                \vdots & \ddots & \vdots \\ 
+                                a_{1n}b_{1n} & \cdots & a_{nm}b_{nm} 
+                            \end{bmatrix}
+                            \\
+                            (A \oplus B)^{T} &= 
+                            \begin{bmatrix}
+                                a_{11} \begin{bmatrix}
+                                            b_{11} & \cdots & b_{n1} \\
+                                            \vdots & \ddots & \vdots \\
+                                            b_{1m} & \cdots & b_{mn}
+                                        \end{bmatrix}
+                                & \cdots 
+                                & a_{m1}   \begin{bmatrix}
+                                                b_{11} & \cdots & b_{n1} \\
+                                                \vdots & \ddots & \vdots \\
+                                                b_{1m} & \cdots & b_{mn}                 
+                                            \end{bmatrix}
+                                \\
+                                \vdots & \ddots & \vdots \\
+                                a_{1n}  \begin{bmatrix}
+                                            b_{11} & \cdots & b_{n1} \\
+                                            \vdots & \ddots & \vdots \\
+                                            b_{1m} & \cdots & b_{mn}         
+                                        \end{bmatrix}
+                                & \cdots 
+                                & a_{mn}    \begin{bmatrix}
+                                                b_{11} & \cdots & b_{n1} \\
+                                                \vdots & \ddots & \vdots \\
+                                                b_{1m} & \cdots & b_{mn}
+                                            \end{bmatrix}
+                                \\
+                            \end{bmatrix}
+                            \\
+                            (A \oplus B)^{T} &=
+                            \begin{bmatrix}
+                                a_{11}B^{T} & \cdots & a_{m1}B^{T} \\
+                                \vdots & \ddots & \vdots \\
+                                a_{1n}B^{T} & \cdots & a_{mn}B^{T} \\
+                            \end{bmatrix}
+                        \end{align*}
+                    \end{center}
+                Thus, $(A \oplus B)^{T} = A^{T} \oplus B^{T}$.\\
+            \end{proof}
         \item
         \item
     \end{enumerate}
