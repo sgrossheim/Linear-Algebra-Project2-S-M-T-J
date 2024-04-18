@@ -2,12 +2,16 @@
 #include <time.h>
 using namespace std;
 
-//Montana Merkle
+//-------------------------------------------------------------------------------------------------------
 //Math Project 2
+//By Group 4: Montana Merkle, Thomas Ludwig, Joseph Pope, Sarah Grossheim
+//Lighting Game 1, Question 1
 //Linear Algebra
+//Dr.Quinn
+//-------------------------------------------------------------------------------------------------------
 
 //*****************************************
-//Class header or declaration
+//Class declaration
 //*****************************************
 
 class Switches{
@@ -31,7 +35,7 @@ public:
 };     
 
 //*****************************************
-//Class implementation or definition
+//Class definition
 //*****************************************
 
 //constructor
@@ -45,7 +49,7 @@ Switches::Switches(){
     C = (rand()%2==0);
     D = (rand()%2==0);
     E = (rand()%2==0);
-    cout << "Switches set to random" << endl;
+    cout << "Switches set to random." << endl;
 }
 
 //outputs current state of switches
@@ -105,6 +109,10 @@ void menu(){
 	cout << "q - Quit" << endl;	
 }
 
+//*****************************************
+//Main
+//*****************************************
+
 int main(){
     //instantiation
     Switches panel;
@@ -115,11 +123,12 @@ int main(){
 	char choice = 'q';
 	
 	//outputs menu and gets user choice
-	menu();
+	menu(); cout << endl;
 	cout << "Enter Menu Selection: ";
 	cin >> choice;
 	cout << endl;
   
+  	//allow repetition of loop until users decides to quit
     while (choice != 'q'){
     	if (choice == 'a')
     		panel.SwitchA();
