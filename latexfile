@@ -211,17 +211,52 @@
     \textbf{Game 2:} A row of three light bulbs is controlled by three switches (Labeled $A$, $B$, $C$). Each switch changes
     the state of the bulb directly above it and immediately adjacent to the left and right to off $\longrightarrow$ red $\longrightarrow$ green
     $\longrightarrow$ off.
-        \begin{enumerate}
-            \item
-            \item
-            \item
-        \end{enumerate}
+    \begin{enumerate}
+    \item 
+    \item
+    \item Prove or disprove: From any initial configuration we can reach any other configuration.\\
+    
+    Shown below, there are 27 permutations of a $1\times3$ matrix where the values could either be off (0), red (1), or green (2).
+    \begin{center}
+    \begin{enumerate}
+        \renewcommand{\labelenumii}{\arabic{enumii}.}
+        \item off, off, off or 0, 0, 0
+        \item off, off, red or 0, 0, 1
+        \item off, off, green or 0, 0, 2
+        \item off, red, off or 0, 1, 0
+        \item off, red, red or 0, 1, 1
+        \item off, red, green or 0, 1, 2
+        \item off, green, off or 0, 2, 0
+        \item off, green, red or 0, 2, 1
+        \item off, green, green or 0, 2, 2
+        \item red, off, off or 1, 0, 0
+        \item red, off, red or 1, 0, 1
+        \item red, off, green or 1, 0, 2
+        \item red, red, off or 1, 1, 0
+        \item red, red, red or 1, 1, 1
+        \item red, red, green or 1, 1, 2
+        \item red, green, off or 1, 2, 0
+        \item red, green, red or 1, 2, 1
+        \item red, green, green or 1, 2, 2
+        \item green, off, off or 2, 0, 0
+        \item green, off, red or 2, 0, 1
+        \item green, off, green or 2, 0, 2
+        \item green, red, off or 2, 1, 0
+        \item green, red, red or 2, 1, 1
+        \item green, red, green or 2, 1, 2
+        \item green, green, off or 2, 2, 0
+        \item green, green, red or 2, 2, 1
+        \item green, green, green or 2, 2, 2
+    \end{enumerate}
+    \end{center}
+    By using exhaustive search with each of these permutations in the code, we are able to see that any initial configuration can reach the all off state. If any initial configuration is able to reach the all off state, we can conclude that it should be possible to reach any other configuration as well. \\
+\end{enumerate}
     \textbf{Game 3:} Nine squares, in a $3 \times 3$ array are either red, green, or off. When you push a square, it changes
     its own state and states of some of its neighbors in the following order off $\longrightarrow$ red $\longrightarrow$ green $\longrightarrow$ off. The object
     of the game is to turn all nine squares off. The possible switches are shown below.
         \begin{enumerate}
             \item
             \item
-            \item
+            \item Prove or disprove: From any initial configuration we can win the game.
         \end{enumerate}
 \end{document}
