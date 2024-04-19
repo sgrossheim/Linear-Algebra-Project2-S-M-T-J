@@ -1,0 +1,364 @@
+#include <iostream>
+using namespace std;
+
+//Sarah Grossheim
+//Math Project 2
+//Linear Algebra
+
+// Function declarations
+void getConfig(int (&a)[3], int (&b)[3], int (&c)[3]);
+char menu();
+void printStates(int a[], int b[], int c[]);
+void swap(int array[], int size);
+bool allOff(int a[], int b[], int c[]);
+
+int main()
+{
+	// Declare switches & variables
+	int arrayA[] = {0,1,2};
+	int arrayB[] = {0,1,2};
+	int arrayC[] = {0,1,2};
+	char choice;
+	int count = 0;
+	bool off = 0;
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	
+	// Get configuration from user
+	getConfig(arrayA, arrayB, arrayC);
+	
+	// Print states
+	printStates(arrayA, arrayB, arrayC);
+	
+	// Display menu
+	choice = menu();
+	
+	while(choice != 'q')
+	{
+		if(choice == 'a')
+		{
+			swap(arrayA, 3);
+			swap(arrayB, 3);
+			count++;
+			a++;
+			off = allOff(arrayA, arrayB, arrayC);
+			if(off == 1)
+			{
+				printStates(arrayA, arrayB, arrayC);
+				cout << endl << "Congrats! All lights are off." << endl;
+				cout << "It took " << count << " presses to reach the all off state." << endl;
+				cout << "A was pressed " << a << " times." << endl;
+				cout << "B was pressed " << b << " times." << endl;
+				cout << "C was pressed " << c << " times." << endl;
+				return 0;
+			}
+			else
+			{
+				printStates(arrayA, arrayB, arrayC);
+				choice = menu();
+			}
+		}
+		else if(choice == 'b')
+		{
+			swap(arrayB, 3);
+			swap(arrayA, 3);
+			swap(arrayC, 3);
+			count++;
+			b++;
+			off = allOff(arrayA, arrayB, arrayC);
+			if(off == 1)
+			{
+				printStates(arrayA, arrayB, arrayC);
+				cout << endl << "Congrats! All lights are off." << endl;
+				cout << "It took " << count << " presses to reach the all off state." << endl;
+				cout << "A was pressed " << a << " times." << endl;
+				cout << "B was pressed " << b << " times." << endl;
+				cout << "C was pressed " << c << " times." << endl;
+				return 0;
+			}
+			else
+			{
+				printStates(arrayA, arrayB, arrayC);
+				choice = menu();
+			}
+		}
+		else if(choice == 'c')
+		{
+			swap(arrayC, 3);
+			swap(arrayB, 3);
+			count++;
+			c++;
+			off = allOff(arrayA, arrayB, arrayC);
+			if(off == 1)
+			{
+				printStates(arrayA, arrayB, arrayC);
+				cout << endl << "Congrats! All lights are off." << endl;
+				cout << "It took " << count << " presses to reach the all off state." << endl;
+				cout << "A was pressed " << a << " times." << endl;
+				cout << "B was pressed " << b << " times." << endl;
+				cout << "C was pressed " << c << " times." << endl;
+				return 0;
+			}
+			else
+			{
+				printStates(arrayA, arrayB, arrayC);
+				choice = menu();
+			}
+		}
+		else
+		{
+			cout << "Invalid Menu selection. Try again." << endl << endl;
+			printStates(arrayA, arrayB, arrayC);
+			menu();
+		}
+	}
+	
+	return 0;
+}
+
+// function to get user input about initial configuration
+void getConfig(int (&a)[3], int (&b)[3], int (&c)[3])
+{
+	// Declare variables
+	int configA;
+	int configB;
+	int configC;
+	int pattern1[] = {0, 1, 2};
+	int pattern2[] = {1, 2, 0};
+	int pattern3[] = {2, 0, 1};
+	
+	// Get config from user
+	cout << "How do you want to start A?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configA;
+	cout << endl;
+	
+	// A
+	if(configA == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			a[i] = pattern1[i];
+		}
+	}
+	else if(configA == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			a[i] = pattern2[i];
+		}
+	}
+	else if(configA == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			a[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start A?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configA;
+		cout << endl;
+	}
+	
+	// B
+	cout << "How do you want to start B?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configB;
+	cout << endl;
+	
+	if(configB == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			b[i] = pattern1[i];
+		}
+	}
+	else if(configB == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			b[i] = pattern2[i];
+		}
+	}
+	else if(configB == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			b[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start B?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configB;
+		cout << endl;
+	}
+	
+	// C
+	cout << "How do you want to start C?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configC;
+	cout << endl;
+	
+	if(configC == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			c[i] = pattern1[i];
+		}
+	}
+	else if(configC == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			c[i] = pattern2[i];
+		}
+	}
+	else if(configC == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			c[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start C?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configC;
+		cout << endl;
+	}
+	
+	/*
+    // Test Cases to make sure the order of the arrays are always:
+    // [0, 1, 2] , [1, 2, 0], or [2, 0, 1]
+    cout << "A" << endl;
+    for(int i = 0; i<3; i++)
+    {
+    	cout << a[i] << " ";
+ 	}
+ 	cout << endl << "B" << endl;
+ 	for(int i = 0; i<3; i++)
+    {
+    	cout << b[i] << " ";
+ 	}
+ 	cout << endl << "C" << endl;
+ 	for(int i = 0; i<3; i++)
+    {
+    	cout << c[i] << " ";
+ 	}
+ 	cout << endl;
+ 	*/
+}
+
+// function for menu and selection
+char menu(){
+	char choice;
+	
+	cout << endl;
+	cout << "What switch do you want to press?" << endl;
+	cout << "a - Switch A" << endl;
+	cout << "b - Switch B" << endl;
+	cout << "c - Switch C" << endl;
+	cout << "q - Quit" << endl << endl;
+	
+	cout << "Enter Menu Selection: ";
+	cin >> choice;
+	cout << endl;	
+	
+	return choice;
+}
+
+// Function for printing the current states of switches
+void printStates(int a[],int b[],int c[])
+{
+	cout << "Current state of switches: " << endl;
+	cout << "A          B          C" << endl;
+	string colorA;
+	string colorB;
+	string colorC;
+	
+	// Check for array A
+	if(a[0] == 0)
+	{
+		colorA = "off";
+	}
+	else if(a[0] == 1)
+	{
+		colorA = "red";
+	}	
+	else if(a[0] == 2)
+	{
+		colorA = "green";
+	}
+	
+	// Check for array B
+	if(b[0] == 0)
+	{
+		colorB = "off";
+	}
+	else if(b[0] == 1)
+	{
+		colorB = "red";
+	}	
+	else if(b[0] == 2)
+	{
+		colorB = "green";
+	}
+	
+	// Check for array C
+	if(c[0] == 0)
+	{
+		colorC = "off";
+	}
+	else if(c[0] == 1)
+	{
+		colorC = "red";
+	}	
+	else if(c[0] == 2)
+	{
+		colorC = "green";
+	}
+	
+	
+	cout << colorA << "       " << colorB << "       " << colorC << endl;
+	
+}
+
+// function to swap states
+void swap(int array[], int size)
+{
+	// Save the first element
+	int temp = array[0];
+	for(int i = 0; i < size - 1; i++)
+	{
+		// Shift elements to the left
+		array[i] = array[i+1];
+	}
+	// assign the saved element to the last position
+	array[size-1] = temp;
+}
+
+// function to determine if all switches are off
+bool allOff(int a[], int b[], int c[])
+{
+	bool off = false;
+	
+	if(a[0] == 0 && b[0] == 0 && c[0] == 0)
+		off = 1;
+	else
+		off = 0;
+		
+	return off;
+}
