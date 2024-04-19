@@ -1,0 +1,668 @@
+#include <iostream>
+using namespace std;
+
+//Sarah Grossheim
+//Math Project 2
+//Linear Algebra
+
+// Function declarations
+void getConfig(int (&a)[3], int (&b)[3], int (&c)[3]);
+char menu();
+void printStates(int a[], int b[], int c[]);
+void swap(int array[], int size);
+bool allOff(int a[], int b[], int c[]);
+void autoSwitchOff(int (&a)[3], int (&b)[3], int (&c)[3], int &Acount, int &Bcount, int &Ccount);
+
+int main()
+{
+	// Declare switches & variables
+    int arrayA[] = {0,1,2};
+    int arrayB[] = {0,1,2};
+    int arrayC[] = {0,1,2};
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    
+    // Get configuration from user
+    getConfig(arrayA, arrayB, arrayC);
+
+    // Print initial states
+    printStates(arrayA, arrayB, arrayC);
+    cout << endl;
+
+    // Automatically switch off all lights
+    autoSwitchOff(arrayA, arrayB, arrayC, a, b, c);
+    cout << endl;
+
+    // Print final states
+    printStates(arrayA, arrayB, arrayC);
+    
+    // This will never get called
+    if(arrayA[0] != 0 || arrayB[0] != 0 || arrayC[0] != 0)
+    {
+    	cout << "We cannot reach the all off state." << endl;
+    	return 0;
+	}
+
+    // Output result
+    cout << endl;
+    cout << "Final Results" << endl;
+    cout << "A was pressed " << a << " times." << endl;
+    cout << "B was pressed " << b << " times." << endl;
+    cout << "C was pressed " << c << " times." << endl;
+
+    return 0;
+}
+
+// function to get user input about initial configuration
+void getConfig(int (&a)[3], int (&b)[3], int (&c)[3])
+{
+	// Declare variables
+	int configA;
+	int configB;
+	int configC;
+	int pattern1[] = {0, 1, 2};
+	int pattern2[] = {1, 2, 0};
+	int pattern3[] = {2, 0, 1};
+	
+	// Get config from user
+	cout << "How do you want to start A?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configA;
+	cout << endl;
+	
+	// A
+	if(configA == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			a[i] = pattern1[i];
+		}
+	}
+	else if(configA == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			a[i] = pattern2[i];
+		}
+	}
+	else if(configA == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			a[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start A?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configA;
+		cout << endl;
+	}
+	
+	// B
+	cout << "How do you want to start B?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configB;
+	cout << endl;
+	
+	if(configB == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			b[i] = pattern1[i];
+		}
+	}
+	else if(configB == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			b[i] = pattern2[i];
+		}
+	}
+	else if(configB == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			b[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start B?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configB;
+		cout << endl;
+	}
+	
+	// C
+	cout << "How do you want to start C?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configC;
+	cout << endl;
+	
+	if(configC == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			c[i] = pattern1[i];
+		}
+	}
+	else if(configC == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			c[i] = pattern2[i];
+		}
+	}
+	else if(configC == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			c[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start C?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configC;
+		cout << endl;
+	}
+	
+	/*
+    // Test Cases to make sure the order of the arrays are always:
+    // [0, 1, 2] , [1, 2, 0], or [2, 0, 1]
+    cout << "A" << endl;
+    for(int i = 0; i<3; i++)
+    {
+    	cout << a[i] << " ";
+ 	}
+ 	cout << endl << "B" << endl;
+ 	for(int i = 0; i<3; i++)
+    {
+    	cout << b[i] << " ";
+ 	}
+ 	cout << endl << "C" << endl;
+ 	for(int i = 0; i<3; i++)
+    {
+    	cout << c[i] << " ";
+ 	}
+ 	cout << endl;
+ 	*/
+}
+
+// function for menu and selection
+char menu(){
+	char choice;
+	
+	cout << endl;
+	cout << "What switch do you want to press?" << endl;
+	cout << "a - Switch A" << endl;
+	cout << "b - Switch B" << endl;
+	cout << "c - Switch C" << endl;
+	cout << "q - Quit" << endl << endl;
+	
+	cout << "Enter Menu Selection: ";
+	cin >> choice;
+	cout << endl;	
+	
+	return choice;
+}
+
+// Function for printing the current states of switches
+void printStates(int a[],int b[],int c[])
+{
+	cout << "Current state of switches: " << endl;
+	cout << "A          B          C" << endl;
+	string colorA;
+	string colorB;
+	string colorC;
+	
+	// Check for array A
+	if(a[0] == 0)
+	{
+		colorA = "off";
+	}
+	else if(a[0] == 1)
+	{
+		colorA = "red";
+	}	
+	else if(a[0] == 2)
+	{
+		colorA = "green";
+	}
+	
+	// Check for array B
+	if(b[0] == 0)
+	{
+		colorB = "off";
+	}
+	else if(b[0] == 1)
+	{
+		colorB = "red";
+	}	
+	else if(b[0] == 2)
+	{
+		colorB = "green";
+	}
+	
+	// Check for array C
+	if(c[0] == 0)
+	{
+		colorC = "off";
+	}
+	else if(c[0] == 1)
+	{
+		colorC = "red";
+	}	
+	else if(c[0] == 2)
+	{
+		colorC = "green";
+	}
+	
+	
+	cout << colorA << "       " << colorB << "       " << colorC << endl;
+	
+}
+
+// function to swap states
+void swap(int array[], int size)
+{
+	// Save the first element
+	int temp = array[0];
+	for(int i = 0; i < size - 1; i++)
+	{
+		// Shift elements to the left
+		array[i] = array[i+1];
+	}
+	// assign the saved element to the last position
+	array[size-1] = temp;
+}
+
+// function to determine if all switches are off
+bool allOff(int a[], int b[], int c[])
+{
+	bool off = false;
+	
+	if(a[0] == 0 && b[0] == 0 && c[0] == 0)
+		off = 1;
+	else
+		off = 0;
+		
+	return off;
+}
+
+// function to automatically switch off all lights and return the number of presses
+// exhaustive search
+void autoSwitchOff(int (&a)[3], int (&b)[3], int (&c)[3], int &Acount, int &Bcount, int &Ccount)
+{
+	cout << "Order of switches pressed:" << endl;
+	while(!allOff(a,b,c)){
+		// 1. red red red
+    	if(a[0] == 1 && b[0] == 1 && c[0] == 1)
+    	{
+    		// press b
+    		swap(b,3);
+    		Bcount++;
+    		swap(a,3);
+    		swap(c,3);
+    		cout << "Pressing B" << endl;
+    		
+    		// press b
+    		swap(b,3);
+    		Bcount++;
+    		swap(a,3);
+    		swap(c,3);
+    		cout << "Pressing B" << endl;
+		}
+		// 2. green green green
+		if(a[0] == 2 && b[0] == 2 && c[0] == 2)
+    	{
+    		// press b 
+    		Bcount++;
+    		swap(b,3);
+    		swap(a,3);
+    		swap(c,3);
+    		cout << "Pressing B" << endl;
+		}
+		// 3. off off red
+		if(a[0] == 0 && b[0] == 0 && c[0] == 1)
+    	{
+    		// press a
+    		Acount++;
+    		swap(a,3);
+    		swap(b,3);
+    		cout << "Pressing A" << endl;
+		}
+		// 4. off off green
+		if(a[0] == 0 && b[0] == 0 && c[0] == 2)
+    	{
+    		// press a
+    		Acount++;
+    		swap(a,3);
+    		swap(b,3);
+    		cout << "Pressing A" << endl;
+    		
+    		// press a
+    		Acount++;
+    		swap(a,3);
+    		swap(b,3);
+    		cout << "Pressing A" << endl;
+		}
+		// 5. off red off
+		if(a[0] == 0 && b[0] == 1 && c[0] == 0)
+    	{
+    		// press a
+    		Acount++;
+    		swap(a,3);
+    		swap(b,3);
+    		cout << "Pressing A" << endl;
+    		
+    		// press c
+    		Ccount++;
+    		swap(c,3);
+    		swap(b,3);
+    		cout << "Pressing C" << endl;
+		}
+		// 6. off red red
+		if(a[0] == 0 && b[0] == 1 && c[0] == 1)
+    	{
+    		// press c
+    		Ccount++;
+    		swap(c,3);
+    		swap(b,3);
+    		cout << "Pressing C" << endl;
+    		
+    		// press c
+    		Ccount++;
+    		swap(c,3);
+    		swap(b,3);
+    		cout << "Pressing C" << endl;
+		}
+		// 7. off red green
+		if(a[0] == 0 && b[0] == 1 && c[0] == 2)
+    	{
+    		// press a
+    		Acount++;
+    		swap(a,3);
+    		swap(b,3);
+    		cout << "Pressing A" << endl;
+    		
+    		// press c
+    		Ccount++;
+    		swap(c,3);
+    		swap(b,3);
+    		cout << "Pressing C" << endl;
+    		
+    		// press c
+    		Ccount++;
+    		swap(c,3);
+    		swap(b,3);
+    		cout << "Pressing C" << endl;
+		}
+		// 8. off green off
+		if(a[0] == 0 && b[0] == 2 && c[0] == 0)
+    	{
+    		// press a
+    		Acount++;
+    		swap(a,3);
+    		swap(b,3);
+    		cout << "Pressing A" << endl;
+    		
+    		// press c
+    		Ccount++;
+    		swap(c,3);
+    		swap(b,3);
+    		cout << "Pressing C" << endl;
+		}
+		// 9. off green red
+		if(a[0] == 0 && b[0] == 2 && c[0] == 1)
+    	{
+    		// press c
+    		Ccount++;
+    		swap(c,3);
+    		swap(b,3);
+    		cout << "Pressing C" << endl;
+		}
+		// 10. off green green
+		if(a[0] == 0 && b[0] == 2 && c[0] == 2)
+    	{
+    		// press c
+    		Ccount++;
+    		swap(c,3);
+    		swap(b,3);
+    		cout << "Pressing C" << endl;
+		}
+		// 11. red off off
+		if(a[0] == 1 && b[0] == 0 && c[0] == 0)
+		{
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+		}
+		// 12. red off red
+		if(a[0] == 1 && b[0] == 0 && c[0] == 1)
+		{
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+			
+			// press a
+			Acount++;
+			swap(a,3);
+			swap(b,3);
+			cout << "Pressing A" << endl;
+		}
+		// 13. red off green
+		if(a[0] == 1 && b[0] == 0 && c[0] == 2)
+		{
+			// press a
+			Acount++;
+			swap(a,3);
+			swap(b,3);
+			cout << "Pressing A" << endl;
+	
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+			
+			// press a
+			Acount++;
+			swap(a,3);
+			swap(b,3);	
+			cout << "Pressing A" << endl;
+		}
+		// 14. red red off
+		if(a[0] == 1 && b[0] == 1 && c[0] == 0)
+		{
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+			
+			// press a
+			Acount++;
+			swap(a,3);
+			swap(b,3);
+			cout << "Pressing A" << endl;
+		}
+		// 15. red red green
+		if(a[0] == 1 && b[0] == 1 && c[0] == 2)
+		{
+			// press a
+			Acount++;
+			swap(a,3);
+			swap(b,3);
+			cout << "Pressing A" << endl;
+		}
+		// 16. red green off
+		if(a[0] == 1 && b[0] == 2 && c[0] == 0)
+		{
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+		}
+		// 17. red green red
+		if(a[0] == 1 && b[0] == 2 && c[0] == 1)
+		{
+			// press b
+			Bcount++;
+			swap(c,3);
+			swap(b,3);
+			swap(a,3);
+			cout << "Pressing B" << endl;
+		}
+		// 18. red green green
+		if(a[0] == 1 && b[0] == 2 && c[0] == 2)
+		{
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+			
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+		}
+		// 19. green off off
+		if(a[0] == 2 && b[0] == 0 && c[0] == 0)
+		{
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+			
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+		}
+		// 20. green off red
+		if(a[0] == 2 && b[0] == 0 && c[0] == 1)
+		{
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+			
+			// press a
+			Acount++;
+			swap(a,3);
+			swap(b,3);
+			cout << "Pressing A" << endl;
+			
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+		}
+		// 21. green off green
+		if(a[0] == 2 && b[0] == 0 && c[0] == 2)
+		{
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+			
+			// press a
+			Acount++;
+			swap(a,3);
+			swap(b,3);
+			cout << "Pressing A" << endl;
+		}
+		// 22. green red off
+		if(a[0] == 2 && b[0] == 1 && c[0] == 0)
+		{
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+			
+			// press a
+			Acount++;
+			swap(a,3);
+			swap(b,3);
+			cout << "Pressing A" << endl;
+			
+			// press a
+			Acount++;
+			swap(a,3);
+			swap(b,3);
+			cout << "Pressing A" << endl;
+		}
+		// 23. green red red
+		if(a[0] == 2 && b[0] == 1 && c[0] == 1)
+		{
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+		}
+		// 24. green red green
+		if(a[0] == 2 && b[0] == 1 && c[0] == 2)
+		{
+			// press a
+			Acount++;
+			swap(a,3);
+			swap(b,3);
+			cout << "Pressing A" << endl;
+			
+			// press c
+			Ccount++;
+			swap(c,3);
+			swap(b,3);
+			cout << "Pressing C" << endl;
+		}
+		// 25. green green off
+		if(a[0] == 2 && b[0] == 2 && c[0] == 0)
+		{
+			// press a
+			Acount++;
+			swap(a,3);
+			swap(b,3);
+			cout << "Pressing A" << endl;
+		}
+		// 26. green green red
+		if(a[0] == 2 && b[0] == 2 && c[0] == 1)
+		{
+			// press a
+			Acount++;
+			swap(a,3);
+			swap(b,3);
+			cout << "Pressing A" << endl;
+			
+			// press c
+			Acount++;
+			swap(a,3);
+			swap(b,3);
+			cout << "Pressing A" << endl;
+		}
+	}
+}
