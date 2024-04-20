@@ -323,8 +323,10 @@
     the state of the bulb directly above it and immediately adjacent to the left and right to off $\longrightarrow$ red $\longrightarrow$ green
     $\longrightarrow$ off.
     \begin{enumerate}
-    \item 
-    \item
+    \item The program that allows the user to change the state of each button after being given a random configuration is attached.
+    \item The program that takes in a configuration from the user and determines if after a series of switches are “pushed” all lights will be in the off state. The output is either ”We cannot reach the “all off” state” or gives the number of times each switch must be pressed to achieve the all off state. \\ \\
+    The output never reached "We cannot reach the “all off” state” because every configuration was able to get back to the all off state.
+
     \item Prove or disprove: From any initial configuration we can reach any other configuration.\\
     
     Shown below, there are 27 permutations of a $1\times3$ matrix where the values could either be off (0), red (1), or green (2).
@@ -360,7 +362,27 @@
         \item green, green, green or 2, 2, 2
     \end{enumerate}
     \end{center}
-    By using exhaustive search with each of these permutations in the code, we are able to see that any initial configuration can reach the all off state. If any initial configuration is able to reach the all off state, we can conclude that it should be possible to reach any other configuration as well. \\
+    By using exhaustive search with each of these permutations in the code, we are able to see that any initial configuration can reach the all off state. If any initial configuration is able to reach the all off state, we can conclude that it should be possible to reach any other configuration as well. \\ \\
+    Suppose the initial configuration is red, green, off, and we wanted to get to the green, green, red configuration. \\ \\
+    Initial Configuration: (A) red, (B) green, (C) off \\
+    Press C \\
+    Press C \\
+    Press B \\
+    Press C \\
+    Press A \\
+    Press A \\
+    Press C \\
+    Press C \\
+    Press C \\
+    Press A \\
+    Press B \\
+    Press A \\
+    Press A \\
+    Press C \\
+    Press C \\
+    End Configuration: (A) green, (B) green, (C) red \\ \\
+    
+    By using the tester code for Game2Part2, one can enter in this initial configuration and will be able to reach the other configuration. This method can be used for any other sets of configurations, but would have a different order of presses. This proves that we are able to get to any other configuration from any initial configuration.
 \end{enumerate}
     \textbf{Game 3:} Nine squares, in a $3 \times 3$ array are either red, green, or off. When you push a square, it changes
     its own state and states of some of its neighbors in the following order off $\longrightarrow$ red $\longrightarrow$ green $\longrightarrow$ off. The object
