@@ -231,85 +231,121 @@
 
                     The permutations of the different orders of switches for those with two button pushes are shown below:\\
 
+
                     \begin{enumerate}
-                        \item \textbf{01101 - solved with EC pushed}\\
-                        Initial Configuration: 01101 \quad \quad \quad Initial Configuration: 01101\\
-                        E pushed first: 01110 \quad \quad \quad \quad \quad \quad C pushed first: 00011\\
-                        C pushed second: 00000 \quad \quad \quad \quad \quad E pushed second: 00000\\
+                        \item \textbf{01101 - solved with EC pushed} \\
+                        \begin{tabular}{ll}
+                            Initial Configuration: 01101 &  Initial Configuration: 01101\\
+                            E pushed first: 01110 & C pushed first: 00011\\
+                            C pushed second: 00000 & pushed second: 00000\\
+                        \end{tabular}
                         \item \textbf{10010 - solved with BC pushed}\\
-                        Initial Configuration: 10010 \quad \quad \quad Initial Configuration: 10010\\
-                        B pushed first: 01110 \quad \quad \quad \quad \quad \quad C pushed first: 11100\\
-                        C pushed second: 00000 \quad \quad \quad \quad \quad B pushed second: 00000\\
+                        \begin{tabular}{ll}
+                            Initial Configuration: 10010 & Initial Configuration: 10010\\
+                            B pushed first: 01110 & C pushed first: 11100\\
+                            C pushed second: 00000 & B pushed second: 00000\\
+                        \end{tabular}
                         \item \textbf{10110 - solved with AC pushed}\\
-                        Initial Configuration: 10110 \quad \quad \quad Initial Configuration: 10110\\
-                        A pushed first: 01110 \quad \quad \quad \quad \quad \quad C pushed first: 11000\\
-                        C pushed second: 00000 \quad \quad \quad \quad \quad A pushed second: 00000\\
+                        \begin{tabular}{ll}
+                            Initial Configuration: 10110 & Initial Configuration: 10110\\
+                            A pushed first: 01110 & C pushed first: 11000\\
+                            C pushed second: 00000 & A pushed second: 00000\\
+                        \end{tabular}
                         \item \textbf{11011- solved with AE pushed}\\
-                        Initial Configuration: 11011 \quad \quad \quad Initial Configuration: 11011\\
-                        A pushed first: 00011 \quad \quad \quad \quad \quad \quad E pushed first: 11000\\
-                        E pushed second: 00000 \quad \quad \quad \quad \quad A pushed second: 00000\\
+                        \begin{tabular}{ll}
+                            Initial Configuration: 11011 & Initial Configuration: 11011\\
+                            A pushed first: 00011 & E pushed first: 11000\\
+                            E pushed second: 00000 & A pushed second: 00000\\
+                        \end{tabular}
                         \item \textbf{11111- solved with BE pushed}\\
-                        Initial Configuration: 11111 \quad \quad \quad Initial Configuration: 11111\\
-                        B pushed first: 00011 \quad \quad \quad \quad \quad \quad E pushed first: 11100\\
-                        E pushed second: 00000 \quad \quad \quad \quad \quad B pushed second: 00000\\
+                        \begin{tabular}{ll}
+                        Initial Configuration: 11111 & Initial Configuration: 11111\\
+                        B pushed first: 00011 & E pushed first: 11100\\
+                        E pushed second: 00000 & B pushed second: 00000\\
+                        \end{tabular}
                         \item \textbf{00100- solved with ED pushed}\\
-                        Initial Configuration: 00100 \quad \quad \quad Initial Configuration: 00100\\
-                        E pushed first: 00111 \quad \quad \quad \quad \quad \quad D pushed first: 00011\\
-                        D pushed second: 00000 \quad \quad \quad \quad \quad E pushed second: 00000\\
+                        \begin{tabular}{ll}
+                            Initial Configuration: 00100 & Initial Configuration: 00100\\
+                            E pushed first: 00111 & D pushed first: 00011\\
+                            D pushed second: 00000 & E pushed second: 00000\\
+                        \end{tabular}
                         \item \textbf{01001- solved with DC pushed}\\
-                        Initial Configuration: 01001 \quad \quad \quad Initial Configuration: 01001\\
-                        D pushed first: 01110 \quad \quad \quad \quad \quad \quad C pushed first: 00111\\
-                        C pushed second: 00000 \quad \quad \quad \quad \quad D pushed second: 00000\\
+                        \begin{tabular}{ll}
+                            Initial Configuration: 01001 & Initial Configuration: 01001\\
+                            D pushed first: 01110 & C pushed first: 00111\\
+                            C pushed second: 00000 & D pushed second: 00000\\
+                        \end{tabular}
                     \end{enumerate}
 
                     The permutations of the different orders of switches for those with three button pushes are shown below:\\
 
                     \begin{enumerate}
                         \item \textbf{10101 - solved with CAE pushed}\\
-                        Initial Configuration: 10101 \quad \quad \quad Initial Configuration: 10101\\
-                        C pushed first: 11011 \quad \quad \quad \quad \quad \quad C pushed first: 11011\\
-                        A pushed second: 00011 \quad \quad \quad \quad \quad E pushed second: 11000\\
-                        E pushed third: 00000 \quad \quad \quad \quad \quad \quad A pushed third: 00000\\
-                        \\
-                        Initial Configuration: 10101 \quad \quad \quad Initial Configuration: 10101\\
-                        A pushed first: 01101 \quad \quad \quad \quad \quad \quad A pushed first: 01101\\
-                        C pushed second: 00011 \quad \quad \quad \quad \quad E pushed second: 01110\\
-                        E pushed third: 00000 \quad \quad \quad \quad \quad \quad C pushed third: 00000\\
-                        \\
-                        Initial Configuration: 10101 \quad \quad \quad Initial Configuration: 10101\\
-                        E pushed first: 10110 \quad \quad \quad \quad \quad \quad E pushed first: 10110\\
-                        C pushed second: 11000 \quad \quad \quad \quad \quad A pushed second: 01110\\
-                        A pushed third: 00000 \quad \quad \quad \quad \quad \quad C pushed third: 00000\\
+                        \begin{tabular}{ll}
+                            Initial Configuration: 10101 & Initial Configuration: 10101\\
+                            C pushed first: 11011 & C pushed first: 11011\\
+                            A pushed second: 00011 & E pushed second: 11000\\
+                            E pushed third: 00000 & A pushed third: 00000\\
+                        \end{tabular} \\
+                        
+
+                        \begin{tabular}{ll}
+                            Initial Configuration: 10101 & Initial Configuration: 10101\\
+                            A pushed first: 01101 & A pushed first: 01101\\
+                            C pushed second: 00011 & E pushed second: 01110\\
+                            E pushed third: 00000 & C pushed third: 00000\\
+                        \end{tabular} \\
+
+                        \begin{tabular}{ll}
+                            Initial Configuration: 10101 & Initial Configuration: 10101\\
+                            E pushed first: 10110 & E pushed first: 10110\\
+                            C pushed second: 11000 & A pushed second: 01110\\
+                            A pushed third: 00000 & C pushed third: 00000\\
+                        \end{tabular} \\
+                        
                         \item \textbf{10001- solved with CBE pushed}\\
-                        Initial Configuration: 10001 \quad \quad \quad Initial Configuration: 10001\\
-                        C pushed first: 11111 \quad \quad \quad \quad \quad \quad C pushed first: 11111\\
-                        B pushed second: 00011 \quad \quad \quad \quad \quad E pushed second: 11100\\
-                        E pushed third: 00000 \quad \quad \quad \quad \quad \quad B pushed third: 00000\\
-                        \\
-                        Initial Configuration: 10001 \quad \quad \quad Initial Configuration: 10001\\
-                        B pushed first: 01101 \quad \quad \quad \quad \quad \quad B pushed first: 01101\\
-                        C pushed second: 00011 \quad \quad \quad \quad \quad E pushed second: 01110\\
-                        E pushed third: 00000 \quad \quad \quad \quad \quad \quad C pushed third: 00000\\
-                        \\
-                        Initial Configuration: 10001 \quad \quad \quad Initial Configuration: 10001\\
-                        E pushed first: 10010 \quad \quad \quad \quad \quad \quad E pushed first: 10010\\
-                        C pushed second: 11100 \quad \quad \quad \quad \quad B pushed second: 01110\\
-                        B pushed third: 00000 \quad \quad \quad \quad \quad \quad C pushed third: 00000\\
+                        \begin{tabular}{ll}
+                            Initial Configuration: 10001 & Initial Configuration: 10001\\
+                            C pushed first: 11111 & C pushed first: 11111\\
+                            B pushed second: 00011 & E pushed second: 11100\\
+                            E pushed third: 00000 & B pushed third: 00000\\
+                        \end{tabular} \\
+
+                        \begin{tabular}{ll}
+                            Initial Configuration: 10001 & Initial Configuration: 10001\\
+                            B pushed first: 01101 & B pushed first: 01101\\
+                            C pushed second: 00011 & E pushed second: 01110\\
+                            E pushed third: 00000 & C pushed third: 00000\\
+                        \end{tabular} \\
+
+                        \begin{tabular}{ll}
+                            Initial Configuration: 10001 & Initial Configuration: 10001\\
+                            E pushed first: 10010 & E pushed first: 10010\\
+                            C pushed second: 11100 & B pushed second: 01110\\
+                            B pushed third: 00000 & C pushed third: 00000\\
+                        \end{tabular} \\
+                        
                         \item \textbf{01010 - solved with BAC pushed}\\
-                        Initial Configuration: 01010 \quad \quad \quad Initial Configuration: 01010\\
-                        C pushed first: 00100 \quad \quad \quad \quad \quad \quad C pushed first: 00100\\
-                        B pushed second: 11000 \quad \quad \quad \quad \quad A pushed second: 11100\\
-                        A pushed third: 00000 \quad \quad \quad \quad \quad \quad B pushed third: 00000\\
-                        \\
-                        Initial Configuration: 01010 \quad \quad \quad Initial Configuration: 01010\\
-                        B pushed first: 10110 \quad \quad \quad \quad \quad \quad B pushed first: 10110\\
-                        C pushed second: 11000 \quad \quad \quad \quad \quad A pushed second: 01110\\
-                        A pushed third: 00000 \quad \quad \quad \quad \quad \quad C pushed third: 00000\\
-                        \\
-                        Initial Configuration: 01010 \quad \quad \quad Initial Configuration: 01010\\
-                        A pushed first: 10010 \quad \quad \quad \quad \quad \quad A pushed first: 10010\\
-                        C pushed second: 11100 \quad \quad \quad \quad \quad B pushed second: 01110\\
-                        B pushed third: 00000 \quad \quad \quad \quad \quad \quad C pushed third: 00000\\
+                        \begin{tabular}{ll}
+                            Initial Configuration: 01010 & Initial Configuration: 01010\\
+                            C pushed first: 00100 & C pushed first: 00100\\
+                            B pushed second: 11000 & A pushed second: 11100\\
+                            A pushed third: 00000 & B pushed third: 00000\\
+                        \end{tabular} \\
+
+                        \begin{tabular}{ll}
+                            Initial Configuration: 01010 & Initial Configuration: 01010\\
+                            B pushed first: 10110 & B pushed first: 10110\\
+                            C pushed second: 11000 & A pushed second: 01110\\
+                            A pushed third: 00000 &d C pushed third: 00000\\
+                        \end{tabular} \\
+
+                        \begin{tabular}{ll}
+                            Initial Configuration: 01010 & Initial Configuration: 01010\\
+                            A pushed first: 10010 & A pushed first: 10010\\
+                            C pushed second: 11100 & B pushed second: 01110\\
+                            B pushed third: 00000 & C pushed third: 00000\\
+                        \end{tabular}
                     \end{enumerate}
                     
                     Thus, as proven above, any permutation of the order of switches pushed will still result in the all-off state (00000) being reached for these 10 configurations that are solvable with multiple pushes, therefore proving that the order of pressing the switches does not matter.
