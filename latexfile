@@ -200,27 +200,28 @@
     left and right. Suppose that initially, all the lights are off. If we want to turn the first, third and fifth lights
     to be on, we can press $B \longrightarrow C \longrightarrow D$ (or $A \longrightarrow C \longrightarrow E$).
         The program that allows the user to change the state of each button after being given a random configuration is attached.
-        The program that takes in a configuration from the user and determines if after a series of switches are “pushed” all lights will be in the off state is attached.\\\\
+        The program that takes in a configuration from the user and determines if after a series of switches are “pushed” all lights will be in the off state is attached.\\
+        
         Consider the following:
-                \textbf{[(a)] Prove or disprove: The order of pressing the switches does not matter.}
-                    \\\\
+                \textbf{[(a)] Prove or disprove: The order of pressing the switches does not matter.} \\
+                    
                     The order of pressing the switches does not matter since every permutation of the order of switches selected will result in the same switch state. To prove this, the set of light state configurations able to be solved (manipulated by pressing switches into the “all off” state 00000) will be utilized, which is proven to be true in part 2. This set contains 15 initial states (there are 16 solvable configurations, but 00000 is implied as a solution and not included) that are able to be transformed into the state 00000 by pressing switches and all are seen below with their necessary switch pushes to be solved. The 16 other possible configurations are not useful to prove the order of switches does not matter since any order of switch presses will result in a configuration that is not solved/in 00000.\\
                     \begin{align*}
-                        00011 - E\\
-                        11100 - B\\
-                        00111 - D\\
-                        11000 - A\\
-                        01110 - C\\\\
-                        01101 - EC\\
-                        10010 - BC\\
-                        10110 - AC\\
-                        11011 - AE\\
-                        11111 - BE\\
-                        00100 - ED\\
-                        01001 - DC\\\\
-                        10101 - CAE\\
-                        10001 - CBE\\
-                        01010 - BAC
+                        00011 &- E\\
+                        11100 &- B\\
+                        00111 &- D\\
+                        11000 &- A\\
+                        01110 &- C\\
+                        01101 &- EC\\
+                        10010 &- BC\\
+                        10110 &- AC\\
+                        11011 &- AE\\
+                        11111 &- BE\\
+                        00100 &- ED\\
+                        01001 &- DC\\
+                        10101 &- CAE\\
+                        10001 &- CBE\\
+                        01010 &- BAC
                     \end{align*}
                     The configurations only needing one push of a switch are not useful to prove that the order of switches pressed does not matter since only one button is pushed, therefore we can focus on the grouping of 10 configurations solved with 2 and 3 pushes. The number of permutations of the sequence of light pushes for two and three switches pushed can be found using this equation:\\
 
@@ -339,7 +340,7 @@
                         2^5 = 32
                     \end{align*}
 
-                    Therefore there are 32 possible combinations of light configurations. Every configuration of lights can be written as either 11111 (all lights on) or 11110 (all lights on except light E) by performing vector addition in modulo 2. During addition in modulo 2; $0+0=0$, $1+1=0$, and $0+1=1$. The set of lights able to be written as 11111 is shown below:
+                    Therefore there are 32 possible combinations of light configurations. Every configuration of lights can be written as either 11111 (all lights on) or 01111 (all lights on except light A) by performing vector addition in modulo 2. During addition in modulo 2, $0+0=0$, $1+1=0$, and $0+1=1$. The set of lights able to be written as 11111 is shown below:
 
                     \begin{align*}
                         \begin{bmatrix}
@@ -651,47 +652,47 @@
                       1 \\
                       0 \\
                     \end{bmatrix}$ in modulo 2. A list of the possible vectors able to be used as an addend is shown below, created by the defined rules of how each switch affects the state of itself and its adjacent switches.\\
-
-                    press A $=$ adding $\begin{bmatrix}
-                      1 \\
-                      1 \\
-                      0 \\
-                      0 \\
-                      0 \\
-                    \end{bmatrix}$.\\
-                    
-                    press B $=$ adding $\begin{bmatrix}
-                      1 \\
-                      1 \\
-                      1 \\
-                      0 \\
-                      0 \\
-                    \end{bmatrix}$.\\
-
-                    press C $=$ adding $\begin{bmatrix}
-                      0 \\
-                      1 \\
-                      1 \\
-                      1 \\
-                      0 \\
-                    \end{bmatrix}$.\\
-
-                    press D = adding $\begin{bmatrix}
-                      0 \\
-                      0 \\
-                      1 \\
-                      1 \\
-                      1 \\
-                    \end{bmatrix}$.\\
-
-                    press E $=$ adding $\begin{bmatrix}
-                      0 \\
-                      0 \\
-                      0 \\
-                      1 \\
-                      1 \\
-                    \end{bmatrix}$.\\\\
-
+                    \begin{center}
+                        press A $=$ adding $\begin{bmatrix}
+                          1 \\
+                          1 \\
+                          0 \\
+                          0 \\
+                          0 \\
+                        \end{bmatrix}$.\\
+                        
+                        press B $=$ adding $\begin{bmatrix}
+                          1 \\
+                          1 \\
+                          1 \\
+                          0 \\
+                          0 \\
+                        \end{bmatrix}$.\\
+    
+                        press C $=$ adding $\begin{bmatrix}
+                          0 \\
+                          1 \\
+                          1 \\
+                          1 \\
+                          0 \\
+                        \end{bmatrix}$.\\
+    
+                        press D = adding $\begin{bmatrix}
+                          0 \\
+                          0 \\
+                          1 \\
+                          1 \\
+                          1 \\
+                        \end{bmatrix}$.\\
+    
+                        press E $=$ adding $\begin{bmatrix}
+                          0 \\
+                          0 \\
+                          0 \\
+                          1 \\
+                          1 \\
+                        \end{bmatrix}$.\\
+                    \end{center}
                     This concept is applied to list out all the configurations able to be written as configuration 11110 (all lights on except E), seen below:
 
                     \begin{align*}
