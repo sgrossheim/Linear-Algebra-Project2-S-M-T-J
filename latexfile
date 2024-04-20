@@ -200,12 +200,123 @@
     left and right. Suppose that initially, all the lights are off. If we want to turn the first, third and fifth lights
     to be on, we can press $B \longrightarrow C \longrightarrow D$ (or $A \longrightarrow C \longrightarrow E$).
         \begin{enumerate}
-            \item
-            \item
-            \item  words words
+            \item The program that allows the user to change the state of each button after being given a random configuration is attached.
+            \item The program that takes in a configuration from the user and determines if after a series of switches are “pushed” all lights will be in the off state.
+            \item Consider the follow:
                 \begin{enumerate}
-                    \item[(a)]    
-                    \item[(b)]
+                    \item[(a)] Prove or disprove: The order of pressing the switches does not matter.
+                    \\\\
+                    The order of pressing the switches does not matter since every permutation of the order of switches selected will result in the same switch state. To prove this, the set of light state configurations able to be solved (manipulated by pressing switches into the “all off” state 00000) will be utilized, which is proven to be true in part 2. This set contains 15 initial states (there are 16 solvable configurations, but 00000 is implied as a solution and not included) that are able to be transformed into the state 00000 by pressing switches and all are seen below with their necessary switch pushes to be solved. The 16 other possible configurations are not useful to prove the order of switches does not matter since any order of switch presses will result in a configuration that is not solved/in 00000.\\
+                    \begin{align*}
+                        00011 - E\\
+                        11100 - B\\
+                        00111 - D\\
+                        11000 - A\\
+                        01110 - C\\\\
+                        01101 - EC\\
+                        10010 - BC\\
+                        10110 - AC\\
+                        11011 - AE\\
+                        11111 - BE\\
+                        00100 - ED\\
+                        01001 - DC\\
+                        10101 - CAE\\
+                        10001 - CBE\\
+                        01010 - BAC
+                    \end{align*}
+                    The configurations only needing one push of a button are not useful to prove that the order of switches pressed does not matter since only one button is pushed, therefore we can focus on the grouping of 10 configurations solved with 2 and 3 pushes. The number of permutations of the sequence of light pushes for two and three switches pushed can be found using this equation:\\
+
+                    For two switches pushed: 2 (2 options of switches to be pushed first) $\times$ 1 (1 option left of switch to be pushed) = 2 permutations\\
+
+                    For three switches pushed: 3 (3 options for switches to be pushed first) $\times$ 2 (2 options of switches to be pushed second) $\times$ 1 (1 option left of switch to be pushed) = 6 permutations\\
+
+                    The permutations of the different orders of switches for those with two button pushes are shown below:\\
+
+                    The permutations of the different orders of switches for those with three button pushes are shown below:\\
+
+                    Thus, as proven above, any permutation of the order of switches pushed will still result in the all-off state (00000) being reached for these 10 configurations that are solvable with multiple pushes, therefore proving that the order of pressing the switches does not matter.
+                        
+                    \item[(b)] Prove or disprove: From any initial configuration we can reach any other configuration.
+                    \\\\
+                    It is not possible to reach any other configuration from any initial configuration since not every configuration of lights can be turned off, or in other words, reach the light configuration 00000. To prove this, a configuration of lights can be set up in a 5 x 1 vector (5 rows and 1 column with the light labels A, B, C, D, and E), with the light state represented as 1 for on and 0 for off. For example, the light configuration with A on and all other lights off is represented below:\\
+
+                    All vectors of light configurations are in the field $Z_2$, as a light’s state can only be on and off (1 and 0). To find the total number of combinations possible, $2^n$ can be used where $n$ is the number of distinct items; which in this case is 5.\\
+
+                    $2^5 = 35$\\
+
+                    Therefore there are 32 possible combinations of light configurations. Every configuration of lights can be written as either 11111 (all lights on) or 01111 (all lights on except light A) by performing vector addition in modulo 2. During addition in modulo 2, $0+0=0$, $1+1=0$, and $0+1=1$. The set of lights able to be written as 11111 is shown below:\\
+
+                    As an important note, while there are only 7 instances of initial configurations of lights being manipulated to turn all the lights on, the commutative property of addition applies to vectors and states that $v + w = w + v$. Therefore, the vectors can be switched around and the total number of light configurations able to become 11111 is 14.\\
+
+                    As the configuration 11111 can be solved (have all the lights turned off represented by the zero vector), every configuration able to be manipulated into 11111 can also be solved. An example of how to solve this configuration is shown below, but as proven in the first part of this question, the order of pressing switches does not matter and can be implemented another way.\\
+
+                    Since the set of these 14 light configurations represented as vectors can be written as linear combinations of 11111, it can therefore be solved after being manipulated into having all the lights on (transform initial state of lights into 11111, then use the same steps above to turn off all the lights/solve for 00000). This process is shown in the example below.\\
+
+                    Another important concept to note is this:\\
+
+                    The addition pictured in the initial listing of all configurations able to become 11111 is the same as the initial configuration summed with the effect each switch has on the states of lights (pressing C results in lights B, C, and D incrementing in modulo 2). Therefore starting with the lights in the state 01101 and pressing C and B is the same as adding the vector 
+                    $\begin{bmatrix}
+                      1 \\
+                      0 \\
+                      0 \\
+                      0 \\
+                      0 \\
+                    \end{bmatrix}$ in modulo 2. A list of the possible vectors able to be used as an addend is shown below, created by the defined rules of how each switch affects the state of itself and its adjacent switches.\\
+
+                    press A $=$ adding $\begin{bmatrix}
+                      1 \\
+                      1 \\
+                      0 \\
+                      0 \\
+                      0 \\
+                    \end{bmatrix}$.\\
+                    
+                    press B $=$ adding $\begin{bmatrix}
+                      1 \\
+                      1 \\
+                      1 \\
+                      0 \\
+                      0 \\
+                    \end{bmatrix}$.\\
+
+                    press C $=$ adding $\begin{bmatrix}
+                      0 \\
+                      1 \\
+                      1 \\
+                      1 \\
+                      0 \\
+                    \end{bmatrix}$.\\
+
+                    press D = adding $\begin{bmatrix}
+                      0 \\
+                      0 \\
+                      1 \\
+                      1 \\
+                      1 \\
+                    \end{bmatrix}$.\\
+
+                    press E $=$ adding $\begin{bmatrix}
+                      0 \\
+                      0 \\
+                      0 \\
+                      1 \\
+                      1 \\
+                    \end{bmatrix}$.\\
+
+                    This concept is applied to list out all the configurations able to be written as configuration 11110 (all lights on except E), seen below.\\
+
+                    This results in 15 initial configurations of light states able to be manipulated into the state of 11110. Therefore, all of the possible combinations of light switches have been accounted for since 15 (configurations able to be written as 11110) + 1 (the state 11110) + 14 (configurations able to be written as 11111) + 1 (the state 11111) + 1 (the implied “solved” state 00000) = 32.\\
+
+                    The configuration of light switches in the states 11111 and 11110 are linearly independent, proven by combining the vectors into a homogeneous matrix with each vector as a column. Reducing this matrix into reduced row echelon form (RREF) leaves us with the identity matrix and two pivots, thus proving that the two vectors are linearly independent. \\
+
+                    Therefore, the configuration 11110 can not be represented as a linear combination of 11111. This also means that 11110 will never be able to be “solved” and manipulated into the state 00000 since any sequence of lights pushed will never result in 11111; the vector state every “solvable” configuration can be written as. This also makes the statement true that the 15 configurations able to be manipulated into the state 11110 are considered unsolvable (unable to become 00000), since 11110 itself is “unsolvable.”\\
+
+                    Due to these facts, it is not possible to reach any other configuration from any initial configuration since not every configuration of lights can be turned off, or in other words reach the light configuration 00000.\\
+
+
+
+
+                    
                 \end{enumerate}
         \end{enumerate}
     \textbf{Game 2:} A row of three light bulbs is controlled by three switches (Labeled $A$, $B$, $C$). Each switch changes
