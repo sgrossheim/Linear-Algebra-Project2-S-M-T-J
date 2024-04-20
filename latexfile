@@ -339,7 +339,7 @@
                         2^5 = 32
                     \end{align*}
 
-                    Therefore there are 32 possible combinations of light configurations. Every configuration of lights can be written as either 11111 (all lights on) or 01111 (all lights on except light A) by performing vector addition in modulo 2. During addition in modulo 2, $0+0=0$, $1+1=0$, and $0+1=1$. The set of lights able to be written as 11111 is shown below:
+                    Therefore there are 32 possible combinations of light configurations. Every configuration of lights can be written as either 11111 (all lights on) or 11110 (all lights on except light E) by performing vector addition in modulo 2. During addition in modulo 2; $0+0=0$, $1+1=0$, and $0+1=1$. The set of lights able to be written as 11111 is shown below:
 
                     \begin{align*}
                         \begin{bmatrix}
