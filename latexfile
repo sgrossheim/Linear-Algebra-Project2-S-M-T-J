@@ -277,7 +277,7 @@
                         \end{tabular}
                     \end{enumerate}
 
-                    The permutations of the different orders of switches for those with three button pushes are shown below:\\
+                    The permutations of the different orders of switches for those with three button pushes are shown below:
 
                     \begin{enumerate}
                         \item \textbf{10101 - solved with CAE pushed}\\
@@ -348,7 +348,7 @@
                         \end{tabular}
                     \end{enumerate}
                     
-                    Thus, as proven above, any permutation of the order of switches pushed will still result in the all-off state (00000) being reached for these 10 configurations that are solvable with multiple pushes, therefore proving that the order of pressing the switches does not matter.
+                    Thus, as proven above, any permutation of the order of switches pushed will still result in the all-off state (00000) being reached for these 10 configurations that are solvable with multiple pushes, therefore proving that the order of pressing the switches does not matter.\\
                         
                 \textbf{[(b)] Prove or disprove: From any initial configuration we can reach any other configuration.}
                     \\\\
@@ -371,7 +371,6 @@
                     \end{align*}
 
                     All vectors of light configurations are in the field $Z_2$, as a light’s state can only be on and off (1 and 0). To find the total number of combinations possible, $2^n$ can be used where $n$ is the number of distinct items available; which in this case is 5 since there are 5 light switches.
-
                     \begin{align*}
                         2^5 = 32
                     \end{align*}
@@ -463,8 +462,6 @@
                             1 \\
                             1 \\
                         \end{bmatrix}\\\\
-                    \end{align*}
-                    \begin{align*}
                         \begin{bmatrix}
                             0 \\
                             1 \\
@@ -528,7 +525,7 @@
                             1 \\
                             1 \\
                         \end{bmatrix}
-                    \end{align*}
+                    \end{align*}\\
 
                     As an important note, while there are only 7 instances of initial configurations of lights being manipulated to turn all the lights on, the commutative property of addition applies to vectors and states that $v + w = w + v$. Therefore, the vectors can be switched around and the total number of light configurations able to become 11111 is 14.\\
 
@@ -576,8 +573,6 @@
                             1 \\
                             1 \\
                         \end{bmatrix}\\\\
-                    \end{align*}
-                    \begin{align*}
                         \begin{bmatrix}
                             1 \\
                             1 \\
@@ -678,7 +673,7 @@
                             1 \\
                             0 \\
                         \end{bmatrix}
-                    \end{align*}\\
+                    \end{align*}
 
                     The addition pictured in the initial listing of all configurations able to become 11111 is the same as the initial configuration summed with the effect each switch has on the states of lights (pressing C results in lights B, C, and D incrementing in modulo 2). Therefore starting with the lights in the state 01101 and pressing C and B is the same as adding the vector 
                     $\begin{bmatrix}
@@ -695,7 +690,7 @@
                           0 \\
                           0 \\
                           0 \\
-                        \end{bmatrix}$.\\
+                        \end{bmatrix}$\\
                         
                         press B $=$ adding $\begin{bmatrix}
                           1 \\
@@ -703,7 +698,7 @@
                           1 \\
                           0 \\
                           0 \\
-                        \end{bmatrix}$.\\
+                        \end{bmatrix}$\\
     
                         press C $=$ adding $\begin{bmatrix}
                           0 \\
@@ -711,7 +706,7 @@
                           1 \\
                           1 \\
                           0 \\
-                        \end{bmatrix}$.\\
+                        \end{bmatrix}$\\
     
                         press D = adding $\begin{bmatrix}
                           0 \\
@@ -719,7 +714,7 @@
                           1 \\
                           1 \\
                           1 \\
-                        \end{bmatrix}$.\\
+                        \end{bmatrix}$\\
     
                         press E $=$ adding $\begin{bmatrix}
                           0 \\
@@ -727,7 +722,7 @@
                           0 \\
                           1 \\
                           1 \\
-                        \end{bmatrix}$.\\
+                        \end{bmatrix}$\\
                     \end{center}
                     This concept is applied to list out all the configurations able to be written as configuration 11110 (all lights on except E), seen below:
 
@@ -893,163 +888,163 @@
                             1 \\
                             0 \\
                         \end{bmatrix}\\\\
+                        \begin{bmatrix}
+                            0 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            0 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            0 \\
+                            0 \\
+                            0 \\
+                            0 \\
+                            1 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            0 \\
+                            0 \\
+                            0 \\
+                            1 \\
+                            1 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            0 \\
+                            0 \\
+                            0 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                            0 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix}\\\\
+                        \begin{bmatrix}
+                            0 \\
+                            0 \\
+                            0 \\
+                            0 \\
+                            1 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                            0 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                            1 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            0 \\
+                            0 \\
+                            0 \\
+                            1 \\
+                            1 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix}\\\\
+                        \begin{bmatrix}
+                            0 \\
+                            0 \\
+                            1 \\
+                            0 \\
+                            1 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            0 \\
+                            0 \\
+                            0 \\
+                            1 \\
+                            1 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            0 \\
+                            0 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            0 \\
+                            0 \\
+                            0 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix}\\\\
+                        \begin{bmatrix}
+                            0 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                            0 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                            0 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            1 \\
+                            0 \\
+                            0 \\
+                            0 \\
+                            0 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            0 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix}
                     \end{align*}
                     \begin{align*}
                         \begin{bmatrix}
-                            0 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            0 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            0 \\
-                            0 \\
-                            0 \\
-                            0 \\
-                            1 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            0 \\
-                            0 \\
-                            0 \\
-                            1 \\
-                            1 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            0 \\
-                            0 \\
-                            0 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                            0 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix}\\\\
-                        \begin{bmatrix}
-                            0 \\
-                            0 \\
-                            0 \\
-                            0 \\
-                            1 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                            0 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                            1 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            0 \\
-                            0 \\
-                            0 \\
-                            1 \\
-                            1 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix}\\\\
-                        \begin{bmatrix}
-                            0 \\
-                            0 \\
-                            1 \\
-                            0 \\
-                            1 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            0 \\
-                            0 \\
-                            0 \\
-                            1 \\
-                            1 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            0 \\
-                            0 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            0 \\
-                            0 \\
-                            0 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix}\\\\
-                        \begin{bmatrix}
-                            0 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                            0 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                            0 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            1 \\
-                            0 \\
-                            0 \\
-                            0 \\
-                            0 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            0 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix}\\\\
-                        \begin{bmatrix}
                             1 \\
                             0 \\
                             0 \\
@@ -1154,92 +1149,92 @@
                             1 \\
                             0 \\
                         \end{bmatrix}\\\\
+                        \begin{bmatrix}
+                            0 \\
+                            0 \\
+                            0 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                            0 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix}\\\\
+                        \begin{bmatrix}
+                            0 \\
+                            0 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            0 \\
+                            0 \\
+                            0 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix}\\\\
+                        \begin{bmatrix}
+                            1 \\
+                            0 \\
+                            0 \\
+                            0 \\
+                            0 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            0 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix}\\\\
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            0 \\
+                            0 \\
+                            1 \\
+                        \end{bmatrix} +
+                        \begin{bmatrix}
+                            0 \\
+                            0 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            1 \\
+                            1 \\
+                            1 \\
+                            1 \\
+                            0 \\
+                        \end{bmatrix}
                     \end{align*}
                     \begin{align*}
-                        \begin{bmatrix}
-                            0 \\
-                            0 \\
-                            0 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                            0 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix}\\\\
-                        \begin{bmatrix}
-                            0 \\
-                            0 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            0 \\
-                            0 \\
-                            0 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix}\\\\
-                        \begin{bmatrix}
-                            1 \\
-                            0 \\
-                            0 \\
-                            0 \\
-                            0 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            0 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix}\\\\
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            0 \\
-                            0 \\
-                            1 \\
-                        \end{bmatrix} +
-                        \begin{bmatrix}
-                            0 \\
-                            0 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                        \end{bmatrix} =
-                        \begin{bmatrix}
-                            1 \\
-                            1 \\
-                            1 \\
-                            1 \\
-                            0 \\
-                        \end{bmatrix}\\\\
                         \begin{bmatrix}
                             1 \\
                             1 \\
