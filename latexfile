@@ -12,6 +12,9 @@
 \section{Bad Multiplication}
     \begin{enumerate}
         \item Write a program for each new operation. 
+            \begin{itemize}
+                \item Code for doing each operation will be attached under "BadMultiplication.cpp"
+            \end{itemize}
         \item Complete and prove the following: "A matrix $A$ has an inverse under $\circ$ if and only if $\mathellipsis$" 
         \item Show that $(A \oplus B)$ is invertible if and only if $A$ and $B$ are both invertible. Give an explicit formula for $(A \oplus B)^{-1}$.
         \item Show that both products are distributive over addition. 
