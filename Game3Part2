@@ -1,0 +1,735 @@
+#include <iostream>
+using namespace std;
+
+//Sarah Grossheim
+//Math Project 2
+//Linear Algebra
+
+// Function declarations
+void userConfig(int (&a)[3], int (&b)[3], int (&c)[3],int (&d)[3], int (&e)[3], int (&f)[3],int(&g)[3],int (&h)[3], int (&i)[3]);
+void printStates(int a[], int b[], int c[], int d[], int e[], int f[], int g[], int h[], int i[]);
+void swap(int array[], int size);
+bool allOff(int a[], int b[], int c[], int d[], int e[], int f[], int g[], int h[], int i[]);
+void simulateGame(int (&a)[3], int (&b)[3], int (&c)[3],int (&d)[3], int (&e)[3], int (&f)[3],int(&g)[3],int (&h)[3], int (&i)[3]);
+int main()
+{
+	// Declare switches & variables
+	int array1[] = {0, 1, 2};
+	int array2[] = {0, 1, 2};
+	int array3[] = {0, 1, 2};
+	int array4[] = {0, 1, 2};
+	int array5[] = {0, 1, 2};
+	int array6[] = {0, 1, 2};
+	int array7[] = {0, 1, 2};
+	int array8[] = {0, 1, 2};
+	int array9[] = {0, 1, 2};
+	int choice;
+	bool off = 0;
+	int count = 0;
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int d = 0;
+	int e = 0;
+	int f = 0;
+	int g = 0;
+	int h = 0;
+	int i = 0;
+	// Random configuration
+	userConfig(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+	
+	// Print states
+	printStates(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+	
+	// Play the game
+	simulateGame(array1, array2, array3, array4, array5, array6, array7, array8, array9);
+	
+	return 0;
+}
+
+// function to swap the array's orders
+void userConfig(int (&a)[3], int (&b)[3], int (&c)[3],int (&d)[3], int (&e)[3], int (&f)[3],int(&g)[3],int (&h)[3], int (&i)[3])
+{
+	// Declare variables
+    int configA;
+	int configB;
+	int configC;
+	int configD;
+	int configE;
+	int configF;
+	int configG;
+	int configH;
+	int configI;
+    int pattern1[] = {0, 1, 2};
+    int pattern2[] = {1, 2, 0};
+    int pattern3[] = {2, 0, 1};
+    
+   // Get config from user
+	cout << "How do you want to start 1?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configA;
+	cout << endl;
+	
+	// 1
+	if(configA == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			a[i] = pattern1[i];
+		}
+	}
+	else if(configA == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			a[i] = pattern2[i];
+		}
+	}
+	else if(configA == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			a[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start 1?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configA;
+		cout << endl;
+	}
+	
+	// 2
+	cout << "How do you want to start 2?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configB;
+	cout << endl;
+	
+	if(configB == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			b[i] = pattern1[i];
+		}
+	}
+	else if(configB == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			b[i] = pattern2[i];
+		}
+	}
+	else if(configB == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			b[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start 2?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configB;
+		cout << endl;
+	}
+	
+	// 3
+	cout << "How do you want to start 3?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configC;
+	cout << endl;
+	
+	if(configC == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			c[i] = pattern1[i];
+		}
+	}
+	else if(configC == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			c[i] = pattern2[i];
+		}
+	}
+	else if(configC == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			c[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start 3?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configC;
+		cout << endl;
+	}
+	
+	// Get config from user
+	cout << "How do you want to start 4?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configD;
+	cout << endl;
+	
+	// 4
+	if(configD == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			d[i] = pattern1[i];
+		}
+	}
+	else if(configD == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			d[i] = pattern2[i];
+		}
+	}
+	else if(configD == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			d[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start 4?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configD;
+		cout << endl;
+	}
+	
+	// 5
+	cout << "How do you want to start 5?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configE;
+	cout << endl;
+	
+	if(configE == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			e[i] = pattern1[i];
+		}
+	}
+	else if(configE == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			e[i] = pattern2[i];
+		}
+	}
+	else if(configE == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			e[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start 5?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configE;
+		cout << endl;
+	}
+	
+	// 6
+	cout << "How do you want to start 6?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configF;
+	cout << endl;
+	
+	if(configF == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			f[i] = pattern1[i];
+		}
+	}
+	else if(configF == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			f[i] = pattern2[i];
+		}
+	}
+	else if(configF == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			f[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start 6?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configF;
+		cout << endl;
+	}
+	
+	// Get config from user
+	cout << "How do you want to start 7?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configG;
+	cout << endl;
+	
+	// 7
+	if(configG == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			g[i] = pattern1[i];
+		}
+	}
+	else if(configG == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			g[i] = pattern2[i];
+		}
+	}
+	else if(configG == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			g[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start 7?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configG;
+		cout << endl;
+	}
+	
+	// 8
+	cout << "How do you want to start 8?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configH;
+	cout << endl;
+	
+	if(configH == 0)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			h[i] = pattern1[i];
+		}
+	}
+	else if(configB == 1)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			h[i] = pattern2[i];
+		}
+	}
+	else if(configB == 2)
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			h[i] = pattern3[i];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start 8?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configH;
+		cout << endl;
+	}
+	
+	// 9
+	cout << "How do you want to start 9?" << endl;
+	cout << "0: off, 1: red, or 2: green ";
+	cin >> configI;
+	cout << endl;
+	
+	if(configI == 0)
+	{
+		for(int j = 0; j < 3; j++)
+		{
+			i[j] = pattern1[j];
+		}
+	}
+	else if(configI == 1)
+	{
+		for(int j = 0; j < 3; j++)
+		{
+			i[j] = pattern2[j];
+		}
+	}
+	else if(configI == 2)
+	{
+		for(int j = 0; j < 3; j++)
+		{
+			i[j] = pattern3[j];
+		}
+	}
+	else
+	{
+		cout << "Invalid selection. Try again." << endl;
+		// Get config from user
+		cout << "How do you want to start 9?" << endl;
+		cout << "0: off, 1: red, or 2: green ";
+		cin >> configI;
+		cout << endl;
+	}
+}
+
+// Function for printing the current states of switches
+void printStates(int a[], int b[], int c[], int d[], int e[], int f[], int g[], int h[], int i[])
+{
+	string colorA;
+	string colorB;
+	string colorC;
+	string colorD;
+	string colorE;
+	string colorF;
+	string colorG;
+	string colorH;
+	string colorI;
+	cout << "Current state of switches: " << endl;
+	cout << "1          2          3" << endl;
+	// Check for array A
+	if(a[0] == 0)
+	{
+		colorA = "off";
+	}
+	else if(a[0] == 1)
+	{
+		colorA = "red";
+	}	
+	else if(a[0] == 2)
+	{
+		colorA = "green";
+	}
+	
+	// Check for array B
+	if(b[0] == 0)
+	{
+		colorB = "off";
+	}
+	else if(b[0] == 1)
+	{
+		colorB = "red";
+	}	
+	else if(b[0] == 2)
+	{
+		colorB = "green";
+	}
+	
+	// Check for array C
+	if(c[0] == 0)
+	{
+		colorC = "off";
+	}
+	else if(c[0] == 1)
+	{
+		colorC = "red";
+	}	
+	else if(c[0] == 2)
+	{
+		colorC = "green";
+	}
+	cout << colorA << "       " << colorB << "       " << colorC << endl;
+	
+	cout << "4          5          6" << endl;
+	
+	// Check for array D
+	if(d[0] == 0)
+	{
+		colorD = "off";
+	}
+	else if(d[0] == 1)
+	{
+		colorD = "red";
+	}	
+	else if(d[0] == 2)
+	{
+		colorD = "green";
+	}
+	
+	// Check for array E
+	if(e[0] == 0)
+	{
+		colorE = "off";
+	}
+	else if(e[0] == 1)
+	{
+		colorE = "red";
+	}	
+	else if(e[0] == 2)
+	{
+		colorE = "green";
+	}
+	
+	// Check for array F
+	if(f[0] == 0)
+	{
+		colorF = "off";
+	}
+	else if(f[0] == 1)
+	{
+		colorF = "red";
+	}	
+	else if(f[0] == 2)
+	{
+		colorF = "green";
+	}
+	cout << colorD << "       " << colorE << "       " << colorF << endl;
+	
+	cout << "7          8          9" << endl;
+	
+	// Check for array G
+	if(g[0] == 0)
+	{
+		colorG = "off";
+	}
+	else if(g[0] == 1)
+	{
+		colorG = "red";
+	}	
+	else if(g[0] == 2)
+	{
+		colorG = "green";
+	}
+	
+	// Check for array H
+	if(h[0] == 0)
+	{
+		colorH = "off";
+	}
+	else if(h[0] == 1)
+	{
+		colorH = "red";
+	}	
+	else if(h[0] == 2)
+	{
+		colorH = "green";
+	}
+	
+	// Check for array I
+	if(i[0] == 0)
+	{
+		colorI = "off";
+	}
+	else if(i[0] == 1)
+	{
+		colorI = "red";
+	}	
+	else if(i[0] == 2)
+	{
+		colorI = "green";
+	}
+	cout << colorG << "       " << colorH << "       " << colorI << endl;
+}
+
+// function to swap states
+void swap(int array[], int size)
+{
+	// Save the first element
+	int temp = array[0];
+	for(int i = 0; i < size - 1; i++)
+	{
+		// Shift elements to the left
+		array[i] = array[i+1];
+	}
+	// assign the saved element to the last position
+	array[size-1] = temp;
+}
+
+// function to determine if all switches are off
+bool allOff(int a[], int b[], int c[], int d[], int e[], int f[], int g[], int h[], int i[])
+{
+	bool off = false;
+	
+	if(a[0] == 0 && b[0] == 0 && c[0] == 0 && d[0] == 0 && e[0] == 0 && f[0] == 0 && g[0] == 0 && h[0] == 0 && i[0] == 0)
+		off = 1;
+	else
+		off = 0;
+		
+	return off;
+}
+
+// function to simulate the game
+void simulateGame(int (&a)[3], int (&b)[3], int (&c)[3],int (&d)[3], int (&e)[3], int (&f)[3],int(&g)[3],int (&h)[3], int (&i)[3])
+{
+	int count = 0;
+	int aCount = 0;
+	int bCount = 0;
+	int cCount = 0;
+	int dCount = 0;
+	int eCount = 0;
+	int fCount = 0;
+	int gCount = 0;
+	int hCount = 0;
+	int iCount = 0;
+	bool off = false;
+	int choice;
+	
+	while (!off && count < 19683)
+	{
+		choice = rand() % 9 + 1; // Randomly choose a switch between 1 and 9
+		
+		if(choice == 1)
+		{
+			swap(a, 3);
+			swap(b, 3);
+			swap(d, 3);
+			swap(e, 3);
+			count++;
+			aCount++;
+			bCount++;
+			dCount++;
+			eCount++;
+			off = allOff(a, b, c, d, e, f, g, h, i);
+		}
+		else if(choice == 2)
+		{
+			swap(a, 3);
+			swap(b, 3);
+			swap(c, 3);
+			count++;
+			aCount++;
+			bCount++;
+			cCount++;
+			off = allOff(a, b, c, d, e, f, g, h, i);
+		}
+		else if(choice == 3)
+		{
+			swap(b, 2);
+			swap(c, 3);
+			swap(e, 5);
+			swap(f, 6);
+			count++;
+			bCount++;
+			cCount++;
+			eCount++;
+			fCount++;
+			off = allOff(a, b, c, d, e, f, g, h, i);
+		}
+		else if(choice == 4)
+		{
+			swap(a, 3);
+			swap(d, 3);
+			swap(g, 3);
+			count++;
+			aCount++;
+			dCount++;
+			gCount++;
+			off = allOff(a, b, c, d, e, f, g, h, i);
+		}
+		else if(choice == 5)
+		{
+			swap(b, 3);
+			swap(d, 3);
+			swap(e, 3);
+			swap(f, 3);
+			swap(h, 3);
+			count++;
+			bCount++;
+			dCount++;
+			eCount++;
+			fCount++;
+			hCount++;
+			off = allOff(a, b, c, d, e, f, g, h, i);
+		}
+		else if(choice == 6)
+		{
+			swap(c, 3);
+			swap(f, 3);
+			swap(i, 3);
+			count++;
+			cCount++;
+			fCount++;
+			iCount++;
+			off = allOff(a, b, c, d, e, f, g, h, i);
+		}
+		else if(choice == 7)
+		{
+			swap(d, 3);
+			swap(e, 3);
+			swap(g, 3);
+			swap(h, 3);
+			count++;
+			dCount++;
+			eCount++;
+			gCount++;
+			hCount++;
+			off = allOff(a, b, c, d, e, f, g, h, i);
+		}
+		else if(choice == 8)
+		{
+			swap(g, 3);
+			swap(h, 3);
+			swap(i, 3);
+			count++;
+			gCount++;
+			hCount++;
+			iCount++;
+			off = allOff(a, b, c, d, e, f, g, h, i);
+		}
+		else if(choice == 9)
+		{
+			swap(e, 3);
+			swap(f, 3);
+			swap(h, 3);
+			swap(i, 3);
+			count++;
+			eCount++;
+			fCount++;
+			hCount++;
+			iCount++;
+			off = allOff(a, b, c, d, e, f, g, h, i);	
+		}
+	}
+	
+	cout << endl;
+	printStates(a, b, c, d, e, f, g, h, i);
+	cout << endl; 
+	
+	if(count < 19683)
+	{
+	cout << "Simulation Result:" << endl;
+	cout << "------------------" << endl;
+	cout << "It took " << count << " presses to reach the all off state." << endl;
+	cout << "1 was pressed " << aCount << " times." << endl;
+	cout << "2 was pressed " << bCount << " times." << endl;
+	cout << "3 was pressed " << cCount << " times." << endl;
+	cout << "4 was pressed " << dCount << " times." << endl;
+	cout << "5 was pressed " << eCount << " times." << endl;
+	cout << "6 was pressed " << fCount << " times." << endl;
+	cout << "7 was pressed " << gCount << " times." << endl;
+	cout << "8 was pressed " << hCount << " times." << endl;
+	cout << "9 was pressed " << iCount << " times." << endl;	
+	}
+	else
+	{
+		cout << "Could not reach the all off state within 19683 iterations." << endl;
+	}
+}
