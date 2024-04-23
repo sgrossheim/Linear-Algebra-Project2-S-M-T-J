@@ -1279,7 +1279,7 @@
 
     \item Prove or disprove: From any initial configuration we can reach any other configuration.\\
     
-    Shown below, there are 27 permutations of a $1\times3$ matrix where the values could either be off (0), red (1), or green (2).
+    Shown below, there are 27 permutations of a $1\times3$ matrix where the values could either be off (0), red (1), or green (2). To find this permutation, since we knew that there are 3 different states the light could be in and there were 3 different lights: $3 \times 3 \times 3 = 27$.
     \begin{center}
     \begin{enumerate}
         \renewcommand{\labelenumii}{\arabic{enumii}.}
