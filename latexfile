@@ -1263,7 +1263,52 @@
 
                     This results in 15 initial configurations of light states able to be manipulated into the state of 11110. Therefore, all of the possible combinations of light switches have been accounted for since 15 (configurations able to be written as 11110) + 1 (the state 11110) + 14 (configurations able to be written as 11111) + 1 (the state 11111) + 1 (the implied “solved” state 00000) = 32.\\
 
-                    The configuration of light switches in the states 11111 and 11110 are linearly independent, proven by combining the vectors into a homogeneous matrix with each vector as a column. Reducing this matrix into reduced row echelon form (RREF) leaves us with the identity matrix and two pivots, thus proving that the two vectors are linearly independent. \\
+                    The configuration of light switches in the states 11111 and 11110 are linearly independent, proven by combining the vectors into a homogeneous matrix with each vector as a column. Reducing this matrix into reduced row echelon form (RREF) leaves us with the identity matrix and two pivots, thus proving that the two vectors are linearly independent.
+
+                    \[ 
+                       \begin{bmatrix}
+                            1 & 1 \\
+                            1 & 1 \\
+                            1 & 1 \\
+                            1 & 1 \\
+                            1 & 0 
+                        \end{bmatrix} \overset{R_1+R_2}{\longrightarrow}
+                        \begin{bmatrix}
+                            1 & 1 \\
+                            0 & 0 \\
+                            1 & 1 \\
+                            1 & 1 \\
+                            1 & 0 \\
+                        \end{bmatrix} \overset{R_1+R_3}{\longrightarrow}
+                        \begin{bmatrix}
+                            1 & 1 \\
+                            0 & 0 \\
+                            0 & 0 \\
+                            1 & 1 \\
+                            1 & 0 \\
+                        \end{bmatrix} \overset{R_1+R_4}{\longrightarrow}
+                        \begin{bmatrix}
+                            1 & 1 \\
+                            0 & 0 \\
+                            0 & 0 \\
+                            0 & 0 \\
+                            1 & 0 \\
+                        \end{bmatrix} \overset{R_2<->R_5}{\longrightarrow}
+                        \begin{bmatrix}
+                            1 & 1 \\
+                            0 & 1 \\
+                            0 & 0 \\
+                            0 & 0 \\
+                            0 & 0 \\
+                        \end{bmatrix} \overset{R_2+R_1}{\longrightarrow}
+                        \begin{bmatrix}
+                            1 & 0 \\
+                            0 & 1 \\
+                            0 & 0 \\
+                            0 & 0 \\
+                            0 & 0 \\
+                        \end{bmatrix}
+                    \]\\
 
                     Therefore, the configuration 11110 can not be represented as a linear combination of 11111. This also means that 11110 will never be able to be “solved” and manipulated into the state 00000 since any sequence of lights pushed will never result in 11111; the vector state every “solvable” configuration can be written as. This also makes the statement true that the 15 configurations able to be manipulated into the state 11110 are considered unsolvable (unable to become 00000), since 11110 itself is “unsolvable.”\\
 
