@@ -592,9 +592,9 @@ void simulateGame(int (&a)[3], int (&b)[3], int (&c)[3],int (&d)[3], int (&e)[3]
 	bool off = false;
 	int choice;
 	
-	while (!off && count < 19683)
+	while (!off) 
 	{
-		choice = rand() % 9 + 1; // Randomly choose a switch between 1 and 9
+		choice = rand() % 9 + 1; // Randomly choose a switch between 1 and 9 
 		
 		if(choice == 1)
 		{
@@ -713,8 +713,6 @@ void simulateGame(int (&a)[3], int (&b)[3], int (&c)[3],int (&d)[3], int (&e)[3]
 	printStates(a, b, c, d, e, f, g, h, i);
 	cout << endl; 
 	
-	if(count < 19683)
-	{
 	cout << "Simulation Result:" << endl;
 	cout << "------------------" << endl;
 	cout << "It took " << count << " presses to reach the all off state." << endl;
@@ -727,9 +725,4 @@ void simulateGame(int (&a)[3], int (&b)[3], int (&c)[3],int (&d)[3], int (&e)[3]
 	cout << "7 was pressed " << gCount << " times." << endl;
 	cout << "8 was pressed " << hCount << " times." << endl;
 	cout << "9 was pressed " << iCount << " times." << endl;	
-	}
-	else
-	{
-		cout << "Could not reach the all off state within 19683 iterations." << endl;
-	}
 }
