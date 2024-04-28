@@ -1386,5 +1386,439 @@
             \item
             \item
             \item Prove or disprove: From any initial configuration we can win the game.
+
+            The first step to prove this is to create a matrix that represents the effects each square has on itself and its neighbors. This matrix will be denoted matrix A.
+
+            \[ 
+                \begin{bmatrix}
+                    1 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 1 & 0 & 1 & 1 & 0 & 0 & 0\\
+                    1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0\\        
+                    0 & 1 & 0 & 1 & 1 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 1 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 1\\
+                \end{bmatrix}
+            \]
+
+            Each row of matrix A represents a square (row 1 represents square 1) and the effects when this square is pushed. For example, when square 1 is pushed, square 1, 2, 4, and 5 are all incremented in modulus 3, since there are 3 states each square can be in (0 for off, 1 for red, and 2 for green). Using the expression A$-\lambda$I = 0 and using the matrix A created prior, the eigenvalues can be found. First, the identity matrix of the same size as A will be scaled by $\lambda$.
+            \[ 
+                \begin{bmatrix}
+                    1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+                \end{bmatrix} \times \lambda =
+                \begin{bmatrix}
+                    \lambda & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & \lambda & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 0 & \lambda & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & \lambda & 0 & 0 & 0 & 0 & 0\\        
+                    0 & 0 & 0 & 0 & \lambda & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & \lambda & 0 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & \lambda & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 0 & \lambda & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \lambda\\
+                \end{bmatrix}
+            \]
+
+            Next, the created matrix A will be subtracted by $\lambda$I shown below:
+            \[ 
+                \begin{bmatrix}
+                    1 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 1 & 0 & 1 & 1 & 0 & 0 & 0\\
+                    1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0\\        
+                    0 & 1 & 0 & 1 & 1 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 1 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 1\\
+                \end{bmatrix} -
+                \begin{bmatrix}
+                    \lambda & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & \lambda & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 0 & \lambda & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & \lambda & 0 & 0 & 0 & 0 & 0\\        
+                    0 & 0 & 0 & 0 & \lambda & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & \lambda & 0 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & \lambda & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 0 & \lambda & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \lambda\\
+                \end{bmatrix} = 
+            \]
+            \[
+                \begin{bmatrix}
+                    1-\lambda & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    1 & 1-\lambda & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 1-\lambda & 0 & 1 & 1 & 0 & 0 & 0\\
+                    1 & 0 & 0 & 1-\lambda & 0 & 0 & 1 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1-\lambda & 1 & 0 & 1 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 1-\lambda & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 1-\lambda & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 1-\lambda & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 1-\lambda\\
+                \end{bmatrix}
+            \]\\
+           Since this equation will be solved in modulo 3 (as there is only 3 states each square can be in; 0 for off, 1 for red, 2 for green), the solution for $1-\lambda$ can only be 1. The only other possible eigenvalue is -2, but -2 is equivalent to 1 in modulo 3 which proves that the only eigenvalue is 1. This is shown below:
+            \begin{align*}
+                1-\lambda = 0\\
+                1 = \lambda
+            \end{align*}
+            The matrix can now be updated since we know the eigenvalue, leading to the diagonal simply becoming all zeroes since $1-1 = 0$.
+            \[
+                \begin{bmatrix}
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0\\
+                    1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                \end{bmatrix}
+            \]
+            The next step is to find the corresponding eigenvectors for this eigenvalue, which can be done by augmenting this matrix with the zero vector to create a homogeneous system and then applying Gaussian elimination to reduce the matrix in modulus 3.
+             \[
+                \begin{bmatrix}
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0\\
+                    1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                \end{bmatrix} \overset{2R_2+R_4}{\longrightarrow}
+                \begin{bmatrix}
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0\\
+                    0 & 0 & 2 & 0 & 0 & 0 & 1 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                \end{bmatrix} \overset{R_1<->R_2}{\longrightarrow}
+            \]
+            \[
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0\\
+                    0 & 0 & 2 & 0 & 0 & 0 & 1 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                \end{bmatrix} \overset{2R_2+R_3}{\longrightarrow}
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 2 & 0 & 1 & 0 & 0 & 0\\
+                    0 & 0 & 2 & 0 & 0 & 0 & 1 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                \end{bmatrix} \overset{2R_2+R_5}{\longrightarrow}
+            \]
+            \[
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 2 & 0 & 1 & 0 & 0 & 0\\
+                    0 & 0 & 2 & 0 & 0 & 0 & 1 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 2 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                \end{bmatrix} \overset{R_6<->R_3}{\longrightarrow}
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 2 & 0 & 0 & 0 & 1 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 2 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 2 & 0 & 1 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                \end{bmatrix} \overset{R_3+R_4}{\longrightarrow}
+            \]
+            \[
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 2 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 2 & 0 & 1 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                \end{bmatrix} \overset{R_7<->R_4}{\longrightarrow}
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 2 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 2 & 0 & 1 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                \end{bmatrix} \overset{R_4+R_6}{\longrightarrow}
+            \]
+            \[
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 2 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                \end{bmatrix} \overset{R_9<->R_5}{\longrightarrow}
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 2 & 1 & 0 & 1 & 0\\
+                \end{bmatrix} \overset{2R_5+R_6}{\longrightarrow}
+            \]
+            \[
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 2 & 1 & 0 & 1 & 0\\
+                \end{bmatrix} \overset{R_5+R_9}{\longrightarrow}
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 0 & 2 & 0 & 2 & 0\\
+                \end{bmatrix} \overset{R_9<->R_6}{\longrightarrow}
+            \]
+            \[
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 2 & 0 & 2 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                \end{bmatrix} \overset{2R_6}{\longrightarrow}
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                \end{bmatrix} \overset{2R_7+R_8}{\longrightarrow}
+            \]
+            \[
+                \begin{bmatrix}
+                    1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1\\
+                    0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                \end{bmatrix}
+            \]\\
+            Now that the matrix is in row echelon form (REF), it can be written as a linear system to find the eigenvectors corresponding to the eigenvalue $\lambda$ = 1. 
+            \begin{align*}
+                x_1 + x_3 = 0\\
+                x_2 + x_4 + x_5 = 0\\
+                x_3 + x_9 = 0\\
+                x_4 + x_5 + x_8 = 0\\
+                x_5 + x_6 + x_8 = 0\\
+                x_6 + x_8 = 0\\
+                x_7 + x_9 = 0
+            \end{align*}
+            The next step is to set the free variables $x_8$ and $x_9$ (row/square 8 and 9) to parameters $s$ and $t$ since they can take any value available in modulo 3 (0,1, or 2).
+            \begin{align*}
+                x_8 = s\\
+                x_9 = t
+            \end{align*}
+            Then, the other variables can be expressed using these parameters to find the general solution.\\
+            \begin{align*}
+                x_1 + x_3 = 0\\
+                x_1 = -x_3\\
+                x_1 = -(-t)\\
+                x_1 = t\\\\
+                x_2 + x_4 + x_5 = 0\\
+                x_2 = -x_4 - x_5\\
+                x_2 = -(-s) - 0\\
+                x_2 = s\\\\
+                x_3 + x_9 = 0\\
+                x_3 + t = 0\\
+                x_3 = -t\\\\
+                x_4 + x_5 + x_8 = 0\\
+                x_4 + x_5 + s = 0\\
+                x_4 = -x_5 - s\\
+                x_4 = 0 - s\\
+                x_4 = -s\\\\
+                x_5 + x_6 + x_8 = 0\\
+                x_5 + x_6 + s = 0\\
+                x_5 = -x_6 - s\\
+                x_5 = -(-s) - s\\
+                x_5 = s - s\\
+                x_5 = 0\\\\
+                x_6 + x_8 = 0\\
+                x_6 + s = 0\\
+                x_6 = -s\\\\
+                x_7 + x_9 = 0\\
+                x_7 + t = 0\\
+                x_7 = -t
+            \end{align*}\\
+            With all the variables expressed in terms of the parameters $s$ and $t$, the corresponding eigenvectors can be identified for the eigenvalue $\lambda$ = 1, and therefore a basis for the eigenspace can be created:
+            \begin{align*}
+                v_1 =
+                \begin{bmatrix}
+                    0 \\ 
+                    1 \\
+                    0 \\
+                    -1 \\
+                    0 \\
+                    -1 \\
+                    0 \\
+                    1 \\
+                    0 \\
+                \end{bmatrix}\\\\
+                v_2 =
+                \begin{bmatrix}
+                    1 \\ 
+                    0 \\
+                    -1 \\
+                    0 \\
+                    0 \\
+                    0 \\
+                    -1 \\
+                    0 \\
+                    1 \\
+                \end{bmatrix}
+            \end{align*}
+            \begin{align*}
+                \text{basis} \left\{ s
+                \begin{bmatrix}
+                    0 \\ 
+                    1 \\
+                    0 \\
+                    -1 \\
+                    0 \\
+                    -1 \\
+                    0 \\
+                    1 \\
+                    0 
+                \end{bmatrix} + t
+                \begin{bmatrix}
+                    1 \\ 
+                    0 \\
+                    -1 \\
+                    0 \\
+                    0 \\
+                    0 \\
+                    -1 \\
+                    0 \\
+                    1
+                \end{bmatrix} \right\}
+            \end{align*}
+            Which in modulo 3 is:
+            \begin{align*}
+                v_1 =
+                \begin{bmatrix}
+                    0 \\ 
+                    1 \\
+                    0 \\
+                    2 \\
+                    0 \\
+                    2 \\
+                    0 \\
+                    1 \\
+                    0 \\
+                \end{bmatrix}\\\\
+                v_2 =
+                \begin{bmatrix}
+                    1 \\ 
+                    0 \\
+                    2 \\
+                    0 \\
+                    0 \\
+                    0 \\
+                    2 \\
+                    0 \\
+                    1 \\
+                \end{bmatrix}
+            \end{align*}
+            \begin{align*}
+               \text{basis} \left\{ s
+                \begin{bmatrix}
+                    0 \\ 
+                    1 \\
+                    0 \\
+                    2 \\
+                    0 \\
+                    2 \\
+                    0 \\
+                    1 \\
+                    0 
+                \end{bmatrix} + t
+                \begin{bmatrix}
+                    1 \\ 
+                    0 \\
+                    2 \\
+                    0 \\
+                    0 \\
+                    0 \\
+                    2 \\
+                    0 \\
+                    1
+                \end{bmatrix} \right\}
+            \end{align*}\\
+            The eigenspace associated with the eigenvalue $\lambda$ = 1 consists of all vectors that are mapped to scalar multiples of themselves under the linear transformation represented by matrix A (which represented the effects each square has on itself and its neighbors). Since every square/row has a value in one of the eigenvectors except square/row 5, it proves that every configuration of squares can be transformed into being all off.
+            
         \end{enumerate}
 \end{document}
