@@ -35,7 +35,11 @@
                                 \vdots & \ddots & \vdots \\
                                 b_{m1} & \cdots & b_{mn}                                
                             \end{bmatrix} ^{T}
-                            \\
+                        \end{align*}
+                    \end{center}
+                Transposing $A$ and $B$ we see, 
+                    \begin{center}
+                        \begin{align*}
                             A^{T} \oplus B^{T} &=
                             \begin{bmatrix}
                                 a_{11} & \cdots & a_{m1} \\
@@ -48,7 +52,11 @@
                                 \vdots & \ddots & \vdots \\
                                 b_{1m} & \cdots & b_{mn}                                
                             \end{bmatrix}
-                            \\
+                        \end{align*}
+                    \end{center}
+                Evaluating the Cross Operation, we see,
+                    \begin{center}
+                        \begin{align*}
                             A^{T} \oplus B^{T} &= 
                             \begin{bmatrix}
                                 a_{11} \begin{bmatrix}
@@ -77,21 +85,24 @@
                                             \end{bmatrix}
                                 \\
                             \end{bmatrix}
-                            \\
+                        \end{align*}
+                    \end{center}
+                Distributing the scalar into each matrix, we see,
+                    \begin{center}
+                        \begin{align*}
                             A^{T} \oplus B^{T} &=
                             \begin{bmatrix}
-                                a_{11}B^{T} & \cdots & a_{m1}B^{T} \\
+                                a_{11}b_{11} & \cdots & a_{m1}b_{m1} \\
                                 \vdots & \ddots & \vdots \\
-                                a_{1n}B^{T} & \cdots & a_{mn}B^{T} \\
+                                a_{1n}b_{1n} & \cdots & a_{mn}b_{mn} \\
                             \end{bmatrix}
-                            \\
                         \end{align*}
                     \end{center}
                 Now for the left side, 
                     \begin{center}
                         \begin{align*}
                             (A \oplus B)^{T} &= 
-                            (\begin{bmatrix}
+                             \left(\begin{bmatrix}
                                 a_{11} & \cdots & a_{1n} \\
                                 \vdots & \ddots & \vdots \\
                                 a_{m1} & \cdots & a_{mn}                                
@@ -101,10 +112,14 @@
                                 b_{11} & \cdots & b_{1n} \\
                                 \vdots & \ddots & \vdots \\
                                 b_{m1} & \cdots & b_{mn}                                
-                            \end{bmatrix}) ^{T}
-                            \\
+                            \end{bmatrix} \right) ^{T}
+                        \end{align*}
+                    \end{center}
+                First, we evaluate the Cross Operation,
+                    \begin{center}
+                        \begin{align*}
                            (A \oplus B)^{T} &=
-                            (\begin{bmatrix}
+                            \left (\begin{bmatrix}
                                 a_{11} \begin{bmatrix}
                                             b_{11} & \cdots & b_{1n} \\
                                             \vdots & \ddots & \vdots \\
@@ -130,64 +145,269 @@
                                                 b_{m1} & \cdots & b_{mn}
                                             \end{bmatrix}
                                 \\
-                            \end{bmatrix})^{T}
-                            \\
+                            \end{bmatrix}\right )^{T}
+                        \end{align*}
+                    \end{center}
+                Then, distributing the scalars into each matrix we see,
+                    \begin{center}
+                        \begin{align*}
                             (A \oplus B)^{T} &= 
-                            (\begin{bmatrix}
+                            \left(\begin{bmatrix}
                                 a_{11}b_{11} & \cdots & a_{1n}b_{1n} \\
                                 \vdots & \ddots & \vdots \\
                                 a_{m1}b_{m1} & \cdots & a_{mn}b_{mn} 
-                            \end{bmatrix})^{T}
-                            \\
+                            \end{bmatrix}\right )^{T}
+                        \end{align*}
+                    \end{center}
+                Then, transposing the matrix, we see,
+                    \begin{center}
+                        \begin{align*}
                             (A \oplus B)^{T} &=
                             \begin{bmatrix}
                                 a_{11}b_{11} & \cdots & a_{m1}b_{m1} \\
                                 \vdots & \ddots & \vdots \\ 
                                 a_{1n}b_{1n} & \cdots & a_{nm}b_{nm} 
                             \end{bmatrix}
-                            \\
-                            (A \oplus B)^{T} &= 
+                        \end{align*}
+                    \end{center}
+                So, we see that,
+                    \begin{center}
+                        \begin{align*}
                             \begin{bmatrix}
-                                a_{11} \begin{bmatrix}
-                                            b_{11} & \cdots & b_{n1} \\
-                                            \vdots & \ddots & \vdots \\
-                                            b_{1m} & \cdots & b_{mn}
-                                        \end{bmatrix}
-                                & \cdots 
-                                & a_{m1}   \begin{bmatrix}
-                                                b_{11} & \cdots & b_{n1} \\
-                                                \vdots & \ddots & \vdots \\
-                                                b_{1m} & \cdots & b_{mn}                 
-                                            \end{bmatrix}
-                                \\
-                                \vdots & \ddots & \vdots \\
-                                a_{1n}  \begin{bmatrix}
-                                            b_{11} & \cdots & b_{n1} \\
-                                            \vdots & \ddots & \vdots \\
-                                            b_{1m} & \cdots & b_{mn}         
-                                        \end{bmatrix}
-                                & \cdots 
-                                & a_{mn}    \begin{bmatrix}
-                                                b_{11} & \cdots & b_{n1} \\
-                                                \vdots & \ddots & \vdots \\
-                                                b_{1m} & \cdots & b_{mn}
-                                            \end{bmatrix}
-                                \\
+                                a_{11}b_{11} & \cdots & a_{m1}b_{m1} \\
+                                \vdots & \ddots & \vdots \\ 
+                                a_{1n}b_{1n} & \cdots & a_{nm}b_{nm} 
                             \end{bmatrix}
-                            \\
-                            (A \oplus B)^{T} &=
+                            = 
                             \begin{bmatrix}
-                                a_{11}B^{T} & \cdots & a_{m1}B^{T} \\
-                                \vdots & \ddots & \vdots \\
-                                a_{1n}B^{T} & \cdots & a_{mn}B^{T} \\
+                                a_{11}b_{11} & \cdots & a_{m1}b_{m1} \\
+                                \vdots & \ddots & \vdots \\ 
+                                a_{1n}b_{1n} & \cdots & a_{nm}b_{nm} 
                             \end{bmatrix}
                         \end{align*}
                     \end{center}
-                Thus, $(A \oplus B)^{T} = A^{T} \oplus B^{T}$.\\
+                           
+                Therefore, $(A \oplus B)^{T} = A^{T} \oplus B^{T}$.\\
             \end{proof}
         \item Find and prove an explicit formula for $|A \oplus B|$.
         \item Prove that $(A \oplus B) \circ (C \oplus D) = (A \circ C) \oplus (B \circ D)$ for any matrices $A$, $B$, $C$, and $D$.
     \end{enumerate}
+    \begin{proof}
+                To show that $(A \oplus B) \circ (C \oplus D) = (A \circ C) \oplus (B \circ D)$ for any matrices $A$, $B$, $C$, and $D$, let's first evaluate the left hand side.
+               \begin{center}
+                    $(A \oplus B) \circ (C \oplus D) 
+                      =  \left (
+                        \begin{bmatrix}
+                            a_{11} & \cdots & a_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            a_{m1} & \cdots & a_{mn}
+                        \end{bmatrix} 
+                        \oplus        
+                        \begin{bmatrix}
+                            b_{11} & \cdots & b_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            b_{m1} & \cdots & b_{mn}
+                        \end{bmatrix} \right )
+                        \circ
+                        \left ( 
+                        \begin{bmatrix}
+                            c_{11} & \cdots & c_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            c_{m1} & \cdots & c_{mn}
+                        \end{bmatrix}
+                        \oplus 
+                        \begin{bmatrix}
+                            d_{11} & \cdots & d_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            d_{m1} & \cdots & d_{mn}
+                        \end{bmatrix} \right )$ \\
+                \end{center}
+                First, we evaluate the Cross Operation of $A$, $B$, $C$, and $D$,
+                \begin{center}
+                        $= \begin{bmatrix}
+                            a_{11} 
+                            \begin{bmatrix}
+                                b_{11} & \cdots & b_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                b_{m1} & \cdots & b_{mn}
+                            \end{bmatrix} 
+                            & \cdots & 
+                            a_{1n}
+                            \begin{bmatrix}
+                                b_{11} & \cdots & b_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                b_{m1} & \cdots & b_{mn}
+                            \end{bmatrix} \\
+                            \vdots & \ddots & \vdots \\
+                            a_{m1}
+                            \begin{bmatrix}
+                                b_{11} & \cdots & b_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                b_{m1} & \cdots & b_{mn}
+                            \end{bmatrix} 
+                            & \cdots & 
+                            a_{mn} 
+                            \begin{bmatrix}
+                                b_{11} & \cdots & b_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                b_{m1} & \cdots & b_{mn}
+                            \end{bmatrix}
+                        \end{bmatrix}
+                         \circ
+                        \begin{bmatrix}
+                            c_{11} 
+                            \begin{bmatrix}
+                                d_{11} & \cdots & d_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                d_{m1} & \cdots & d_{mn}
+                            \end{bmatrix} 
+                            & \cdots &
+                            c_{1n}
+                            \begin{bmatrix}
+                                d_{11} & \cdots & d_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                d_{m1} & \cdots & d_{mn}
+                            \end{bmatrix} \\
+                            \vdots & \ddots & \vdots \\
+                            c_{m1}
+                            \begin{bmatrix}
+                                d_{11} & \cdots & d_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                d_{m1} & \cdots & d_{mn}
+                            \end{bmatrix}
+                            & \cdots &
+                            c_{mn} 
+                            \begin{bmatrix}
+                                d_{11} & \cdots & d_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                d_{m1} & \cdots & d_{mn}
+                            \end{bmatrix}
+                        \end{bmatrix}$ \\
+                    \end{center}
+                Then, we distribute the scalar into each matrix, 
+                    \begin{center}
+                       $= \begin{bmatrix}
+                            a_{11}b_{11} & \cdots & a_{1n}b_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            a_{m1}b_{m1} & \cdots & a_{mn}b_{mn}
+                        \end{bmatrix}
+                        \circ 
+                        \begin{bmatrix}
+                            c_{11}d_{11} & \cdots & c_{1n}d_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            c_{m1}d_{m1} & \cdots & c_{mn}d_{mn}
+                        \end{bmatrix}$ \\
+                    \end{center}
+                Then, we can evaluate the Circle Operation, 
+                    \begin{center} 
+                        $\begin{bmatrix}
+                            a_{11}b_{11}c_{11}d_{11} & \cdots & a_{1n}b_{1n}c_{1n}d_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            a_{m1}b_{m1}c_{m1}d_{m1} & \cdots & a_{mn}b_{mn}c_{mn}d_{mn}
+                        \end{bmatrix}$    
+                    \end{center}
+                Next, we can do the right hand side,
+                
+                \break 
+                    \begin{center}
+                      $(A \circ C) \oplus (B \circ D) =  \left (
+                        \begin{bmatrix}
+                            a_{11} & \cdots & a_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            a_{m1} & \cdots & a_{mn}
+                        \end{bmatrix} 
+                        \circ        
+                        \begin{bmatrix}
+                            c_{11} & \cdots & c_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            c_{m1} & \cdots & c_{mn}
+                        \end{bmatrix} \right )
+                        \oplus
+                        \left ( 
+                        \begin{bmatrix}
+                            b_{11} & \cdots & b_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            b_{m1} & \cdots & b_{mn}
+                        \end{bmatrix}
+                        \circ 
+                        \begin{bmatrix}
+                            d_{11} & \cdots & d_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            d_{m1} & \cdots & d_{mn}
+                        \end{bmatrix} \right )$ \\
+                    \end{center}
+                First, we evaluate the Circle Operation of $A$, $B$, $C$, and $D$,
+                    \begin{center}
+                        $= \begin{bmatrix}
+                            a_{11}c_{11} & \cdots & a_{1n}c_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            a_{m1}c_{m1} & \cdots & a_{mn}c_{mn}   
+                        \end{bmatrix}
+                        \oplus 
+                        \begin{bmatrix}
+                            b_{11}d_{11} & \cdots & b_{1n}d_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            b_{m1}d_{m1} & \cdots & b_{mn}d_{mn}
+                        \end{bmatrix}$
+                    \end{center}
+                Then, we will evaluate the Cross Operation, 
+                    \begin{center}
+                        $= \begin{bmatrix}
+                            a_{11}c_{11} 
+                            \begin{bmatrix}
+                                b_{11}d_{11} & \cdots & b_{1n}d_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                b_{m1}d_{m1} & \cdots & b_{mn}d_{m1}
+                            \end{bmatrix} 
+                            & \cdots & 
+                            a_{1n}c_{1n}
+                            \begin{bmatrix}
+                                b_{11}d_{11} & \cdots & b_{1n}d_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                b_{m1}d_{m1} & \cdots & b_{mn}d_{m1}
+                            \end{bmatrix} \\
+                            \vdots & \ddots & \vdots \\
+                            a_{m1}c_{m1}
+                            \begin{bmatrix}
+                                b_{11}d_{11} & \cdots & b_{1n}d_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                b_{m1}d_{m1} & \cdots & b_{mn}d_{m1}
+                            \end{bmatrix} 
+                            & \cdots & 
+                            a_{mn}c_{mn}
+                            \begin{bmatrix}
+                                b_{11}d_{11} & \cdots & b_{1n}d_{1n} \\
+                                \vdots & \ddots & \vdots \\
+                                b_{m1}d_{m1} & \cdots & b_{mn}d_{m1}
+                            \end{bmatrix}
+                        \end{bmatrix}$
+                    \end{center}
+                Then, we distribute each scalar into each matrix,
+                    \begin{center}
+                        $\begin{bmatrix}
+                            a_{11}c_{11}b_{11}d_{11} & \cdots & a_{1n}c_{1n}b_{1n}d_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            a_{m1}c_{m1}b_{m1}d_{m1} & \cdots & a_{mn}c_{mn}b_{mn}d_{mn} 
+                        \end{bmatrix}$
+                    \end{center}
+                So, we now see that,
+                    \begin{center}
+                    \begin{align*}
+                        \begin{bmatrix}
+                            a_{11}b_{11}c_{11}d_{11} & \cdots & a_{1n}b_{1n}c_{1n}d_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            a_{m1}b_{m1}c_{m1}d_{m1} & \cdots & a_{mn}b_{mn}c_{mn}d_{mn}
+                        \end{bmatrix} 
+                        &=
+                        \begin{bmatrix}
+                            a_{11}c_{11}b_{11}d_{11} & \cdots & a_{1n}c_{1n}b_{1n}d_{1n} \\
+                            \vdots & \ddots & \vdots \\
+                            a_{m1}c_{m1}b_{m1}d_{m1} & \cdots & a_{mn}c_{mn}b_{mn}d_{mn} 
+                        \end{bmatrix}
+                    \end{align*}
+                    \end{center}
+                Therefore, $(A \oplus B) \circ (C \oplus D) = (A \circ C) \oplus (B \circ D)$ for any matrices $A$, $B$, $C$, and $D$. 
+            \end{proof}
 
 \section{Okay? Multiplication}
 
