@@ -261,6 +261,40 @@ Under the $\circ$ operation, we know that the inverse of each component $a$ of m
                 Therefore, $(A \oplus B)^{T} = A^{T} \oplus B^{T}$.\\
             \end{proof}
         \item Find and prove an explicit formula for $|A \oplus B|$.
+\begin{proof}
+    We know that the absolute value of a matrix can be found by taking the square root of the determinant of the matrix multiplied by its transposed matrix which can be written as $|A \oplus B| = \sqrt{det((A \oplus B)*(A \oplus B)^T)}$. We can compute $(A \oplus B)*(A \oplus B)^T)$ as,
+    \begin{center}
+        $\begin{bmatrix}
+            a_{11}B & \cdots & a_{m1}B \\
+            \vdots & \ddots & \vdots \\
+            a_{1n}B & \cdots & a_{mn}B \\
+        \end{bmatrix}$
+        $*$
+        $\begin{bmatrix}
+        a_{11}B^{T} & \cdots & a_{m1}B^{T} \\
+        \vdots & \ddots & \vdots \\
+        a_{1n}B^{T} & \cdots & a_{mn}B^{T} \\
+        \end{bmatrix}$.
+    \end{center}
+    This results in,
+    \begin{center}
+        $\begin{bmatrix}
+            |B|^2 a_{11}a_{11}^T  & \cdots & |B|^2 a_{m1}a_{11}^T \\
+            \vdots & \ddots & \vdots \\
+            |B|^2 a_{1n}a_{11}^T & \cdots & |B|^2 a_{mn}a_{mn}^T \\
+        \end{bmatrix}$
+    \end{center}
+    Now compute the determinant of this matrix, by first factoring out $|B|^2$ to get,
+    \begin{center}
+    $det(|B|^2) * det$ 
+        $\begin{bmatrix}
+            a_{11}a_{11}^T  & \cdots & a_{m1}a_{11}^T \\
+            \vdots & \ddots & \vdots \\
+            a_{1n}a_{11}^T & \cdots & a_{mn}a_{mn}^T \\
+        \end{bmatrix}$
+    \end{center}
+    This leaves us off with $|B|^2) * det(A*A^T)$. We know by the definition of the absolute values of matrices that we must then take the square root of this final determinant. We know $\sqrt{|B|^2} = |B|$ and that $\sqrt{det(A*A^T)} = |A|$ Therefore we can write the final result as $|A \oplus B| = |B| * |A|$.
+\end{proof}
         \item Prove that $(A \oplus B) \circ (C \oplus D) = (A \circ C) \oplus (B \circ D)$ for any matrices $A$, $B$, $C$, and $D$.
     \end{enumerate}
     \begin{proof}
