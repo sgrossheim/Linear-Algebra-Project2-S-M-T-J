@@ -41,7 +41,7 @@ Under the $\circ$ operation, we know that the inverse of each component $a$ of m
     \end{proof}
         \item Show that $(A \oplus B)$ is invertible if and only if $A$ and $B$ are both invertible. Give an explicit formula for $(A \oplus B)^{-1}$.
         \item Show that both products are distributive over addition. \\\\
-        To show that $A \circ (B+C) = (A \circ B)+(A \circ C)$ we can denote $A = a_i_j$, $B = b_i_j$, and $C = c_i_j$. Then the left side of the equation will equal $a_i_j(b_i_j + c_i_j)$. The right side will then equal $(a_i_j b_i_j) + (a_i_j c_i_j)$. If we factor out $a_i_j$, then the equation will write as $a_i_j(b_i_j + c_i_j)$. This is equivalent to the left side of the equation showing they are equivalent.\\
+        To show that $A \circ (B+C) = (A \circ B)+(A \circ C)$ we can denote $A = a_{ij}$, $B = b_{ij}$, and $C = c_{ij}$. Then the left side of the equation will equal $a_{ij}(b_{ij} + c_{ij})$. The right side will then equal $(a_i_j b_i_j) + (a_i_j c_i_j)$. If we factor out $a_i_j$, then the equation will write as $a_i_j(b_i_j + c_i_j)$. This is equivalent to the left side of the equation showing they are equivalent.\\
         
         To show that $A \oplus (B+C) = (A \oplus B)+(A \oplus C)$, we begin by computing each side of the equation. The Left hand side is as follows, \\
        \begin{center}
