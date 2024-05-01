@@ -1818,7 +1818,7 @@
                     1
                 \end{bmatrix} \right\}
             \end{align*}\\
-            The eigenspace associated with the eigenvalue $\lambda$ = 1 consists of all vectors that are mapped to scalar multiples of themselves under the linear transformation represented by matrix A (which represented the effects each square has on itself and its neighbors). Since every square/row has a value in one of the eigenvectors except square/row 5, it proves that every configuration of squares can be transformed into being all off.
+            The eigenspace associated with the eigenvalue $\lambda$ = 1 consists of all vectors that are mapped to scalar multiples of themselves under the linear transformation represented by matrix A (which represented the effects each square has on itself and its neighbors). Since every square/row has a value in one of the eigenvectors except square/row 5, it proves that every configuration of squares can be transformed into being all off as long as it does not include square 5.
             
         \end{enumerate}
 \end{document}
