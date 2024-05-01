@@ -16,8 +16,79 @@
                 \item Code for doing each operation will be attached under "BadMultiplication.cpp"
             \end{itemize}
         \item Complete and prove the following: "A matrix $A$ has an inverse under $\circ$ if and only if $\mathellipsis$" 
+\begin{proof}
+        Let $A$ be a $2x3$ matrix such that 
+        $\begin{bmatrix}
+            1 & 2 & 3 \\
+            4 & 5 & 6
+        \end{bmatrix}.$
+Under the $\circ$ operation, we know that the inverse of each component $a$ of matrix $A$ is $\frac{1}{a}$. Therefore, when we solve $A \circ A^-1$, we get 
+        $\begin{bmatrix}
+            1 & 2 & 3 \\
+            4 & 5 & 6
+        \end{bmatrix}$
+        $*$
+        $\begin{bmatrix}
+            \frac{1}{1} & \frac{1}{2} & \frac{1}{3} \\
+            \frac{1}{4} & \frac{1}{5} & \frac{1}{6}
+        \end{bmatrix}$
+        $=$
+        $\begin{bmatrix}
+            1 & 1 & 1 \\
+            1 & 1 & 1
+        \end{bmatrix}.$
+        This is the resulting identity matrix we were looking for of all 1's. This only works if and only if all components $a$ of matrix $A$ is not zero. If any component is zero then there is no inverse and it is impossible to multiply anything by $0$ to get the identity matrix of all 1's.
+    \end{proof}
         \item Show that $(A \oplus B)$ is invertible if and only if $A$ and $B$ are both invertible. Give an explicit formula for $(A \oplus B)^{-1}$.
-        \item Show that both products are distributive over addition. 
+        \item Show that both products are distributive over addition. \\\\
+        To show that $A \circ (B+C) = (A \circ B)+(A \circ C)$ we can denote $A = a_i_j$, $B = b_i_j$, and $C = c_i_j$. Then the left side of the equation will equal $a_i_j(b_i_j + c_i_j)$. The right side will then equal $(a_i_j b_i_j) + (a_i_j c_i_j)$. If we factor out $a_i_j$, then the equation will write as $a_i_j(b_i_j + c_i_j)$. This is equivalent to the left side of the equation showing they are equivalent.\\
+        
+        To show that $A \oplus (B+C) = (A \oplus B)+(A \oplus C)$, we begin by computing each side of the equation. The Left hand side is as follows, \\
+       \begin{center}
+        $\begin{bmatrix}
+            a_{11} (B + C) & a_{12} (B + C) & \cdots & a_{1n} (B + C) \\
+            a_{21} (B + C) & a_{22} (B + C) & \cdots & a_{2n} (B + C) \\
+              \vdots & \vdots & \ddots & \vdots \\
+              a_{m1} (B + C) & a_{m2} (B + C) & \cdots & a_{mn} (B + C) \\ 
+        \end{bmatrix}.$ \\
+        \end{center}
+        Then the right hand side is as follows,
+        \\
+        \begin{center}
+        $\begin{bmatrix}
+            a_{11}B & a_{12}B & \cdots & a_{1n}B \\
+            a_{21}B & a_{22}B & \cdots & a_{2n}B \\
+              \vdots & \vdots & \ddots & \vdots \\
+              a_{m1}B & a_{m2}B & \cdots & a_{mn}B \\ 
+        \end{bmatrix}.$ 
+        $+$
+        $\begin{bmatrix}
+            a_{11}C & a_{12}C & \cdots & a_{1n}C \\
+            a_{21}C & a_{22}C & \cdots & a_{2n}C \\
+              \vdots & \vdots & \ddots & \vdots \\
+              a_{m1}C & a_{m2}C & \cdots & a_{mn}C \\ 
+        \end{bmatrix}.$ \\
+        \end{center}
+        When adding together the following combine to,
+        \\
+        \begin{center}
+        $\begin{bmatrix}
+            a_{11}B + a_{11}C & a_{12}B + a_{12}C & \cdots & a_{1n}B + a_{1n}C \\
+            a_{21}B + a_{21}C & a_{22}B + a_{22}C & \cdots & a_{2n}B + a_{2n}C \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{m1}B + a_{m1}C & a_{m2}B + a_{m2}C & \cdots & a_{mn}B + a_{mn}C \\ 
+        \end{bmatrix}.$ \\
+        \end{center}
+        Then, factor out an $a$ to get the following,\\
+        \begin{center}
+        $\begin{bmatrix}
+            a_{11} (B + C) & a_{12} (B + C) & \cdots & a_{1n} (B + C) \\
+            a_{21} (B + C) & a_{22} (B + C) & \cdots & a_{2n} (B + C) \\
+              \vdots & \vdots & \ddots & \vdots \\
+              a_{m1} (B + C) & a_{m2} (B + C) & \cdots & a_{mn} (B + C) \\ 
+        \end{bmatrix}.$ \\
+        \end{center}
+        This is equal to the left hand side showing that $A \oplus (B+C) = (A \oplus B)+(A \oplus C)$.
         \item Prove that $(A \oplus B)^{T} = A^{T} \oplus B^{T}$.
             \begin{proof}
                 To show that $(A \oplus B)^{T} = A^{T} \oplus B^{T}$, let's first evaluate the right side of the equation,
