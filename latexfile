@@ -40,6 +40,190 @@ Under the $\circ$ operation, we know that the inverse of each component $a$ of m
         This is the resulting identity matrix we were looking for of all 1's. This only works if and only if all components $a$ of matrix $A$ is not zero. If any component is zero then there is no inverse and it is impossible to multiply anything by $0$ to get the identity matrix of all 1's.
     \end{proof}
         \item Show that $(A \oplus B)$ is invertible if and only if $A$ and $B$ are both invertible. Give an explicit formula for $(A \oplus B)^{-1}$.
+    \begin{proof}
+        First, we will verify that $(A\oplus B)(C \oplus D) = (AC)\oplus(BD)$. To do this, we will first evaluate the left hand side. So, 
+            \begin{center}
+                \begin{align*}
+                    (A\oplus B) & (C \oplus D) \\
+                    = \left(\begin{bmatrix}
+                        a_{11} & \cdots & a_{m1} \\
+                        \vdots & \ddots & \vdots \\
+                        a_{1n} & \cdots & a_{mn}    
+                    \end{bmatrix} \oplus
+                    \begin{bmatrix}
+                        b_{11} & \cdots & b_{m1} \\
+                        \vdots & \ddots & \vdots \\
+                        b_{1n} & \cdots & b_{mn}
+                    \end{bmatrix}\right )
+                    &
+                    \left(\begin{bmatrix}
+                        c_{11} & \cdots & c_{m1} \\
+                        \vdots & \ddots & \vdots \\
+                        c_{1n} & \cdots & c_{mn}    
+                    \end{bmatrix} \oplus
+                    \begin{bmatrix}
+                        d_{11} & \cdots & d_{m1} \\
+                        \vdots & \ddots & \vdots \\
+                        d_{1n} & \cdots & d_{mn}
+                    \end{bmatrix}\right )
+                \end{align*}
+            \end{center}
+        Then, evaluating the Cross Operation, 
+            \begin{center}
+                \begin{align*}
+                    \left (\begin{bmatrix}
+                            a_{11} \begin{bmatrix}
+                                        b_{11} & \cdots & b_{1n} \\
+                                        \vdots & \ddots & \vdots \\
+                                        b_{m1} & \cdots & b_{mn}
+                                    \end{bmatrix}
+                            & \cdots 
+                            & a_{1n}   \begin{bmatrix}
+                                            b_{11} & \cdots & b_{1n} \\
+                                            \vdots & \ddots & \vdots \\
+                                            b_{m1} & \cdots & b_{mn}                 
+                                        \end{bmatrix}
+                            \\
+                            \vdots & \ddots & \vdots \\
+                            a_{m1}  \begin{bmatrix}
+                                        b_{11} & \cdots & b_{1n} \\
+                                        \vdots & \ddots & \vdots \\
+                                        b_{m1} & \cdots & b_{mn}         
+                                    \end{bmatrix}
+                            & \cdots 
+                            & a_{mn}    \begin{bmatrix}
+                                            b_{11} & \cdots & b_{1n} \\
+                                            \vdots & \ddots & \vdots \\
+                                            b_{m1} & \cdots & b_{mn}
+                                        \end{bmatrix}
+                            \\
+                        \end{bmatrix}\right )
+                        \\
+                     \left (\begin{bmatrix}
+                            c_{11} \begin{bmatrix}
+                                        d_{11} & \cdots & d_{1n} \\
+                                        \vdots & \ddots & \vdots \\
+                                        d_{m1} & \cdots & d_{mn}
+                                    \end{bmatrix}
+                            & \cdots 
+                            & c_{1n}   \begin{bmatrix}
+                                            d_{11} & \cdots & d_{1n} \\
+                                            \vdots & \ddots & \vdots \\
+                                            d_{m1} & \cdots & d_{mn}                 
+                                        \end{bmatrix}
+                            \\
+                            \vdots & \ddots & \vdots \\
+                            c_{m1}  \begin{bmatrix}
+                                        d_{11} & \cdots & d_{1n} \\
+                                        \vdots & \ddots & \vdots \\
+                                        d_{m1} & \cdots & d_{mn}         
+                                    \end{bmatrix}
+                            & \cdots 
+                            & c_{mn}    \begin{bmatrix}
+                                            d_{11} & \cdots & d_{1n} \\
+                                            \vdots & \ddots & \vdots \\
+                                            d_{m1} & \cdots & d_{mn}
+                                        \end{bmatrix}
+                            \\
+                        \end{bmatrix}\right )
+                \end{align*}
+            \end{center}
+        Then, distributing the scalar into the matrices we see,
+            \begin{center}
+                \begin{align*}
+                    \left (\begin{bmatrix}
+                        a_{11}B & \cdots & a_{m1}B \\
+                        \vdots & \ddots & \vdots \\
+                        a_{1n}B & \cdots & a_{mn}B 
+                    \end{bmatrix}\right )
+                    &
+                    \left (\begin{bmatrix}
+                        c_{11}B & \cdots & c_{m1}B \\
+                        \vdots & \ddots & \vdots \\
+                        c_{1n}B & \cdots & c_{mn}B 
+                    \end{bmatrix}\right )
+                \end{align*}
+            \end{center}
+        Then, doing matrix multiplication we see,
+            \begin{center}
+                \begin{align*}
+                    \begin{bmatrix}
+                        a_{11}Bc_{11}D + a_{m1}Bc_{1n}D & \cdots & a_{11}Bc_{m1}D + a_{m1}Bc_{mn}D \\
+                        \vdots & \ddots & \vdots \\
+                        a_{1n}Bc_{11}D + a_{mn}Bc_{1n}D & \cdots & a_{1n}Bc_{m1}D + a_{mn}Bc_{mn}D
+                    \end{bmatrix}
+                \end{align*}
+            \end{center}
+        Now, for the right hand side, 
+            \begin{center}
+                \begin{align*}
+                    (AC) & \oplus (BD) \\
+                    = \left(\begin{bmatrix}
+                        a_{11} & \cdots & a_{m1} \\
+                        \vdots & \ddots & \vdots \\
+                        a_{1n} & \cdots & a_{mn}    
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                        c_{11} & \cdots & c_{m1} \\
+                        \vdots & \ddots & \vdots \\
+                        c_{1n} & \cdots & c_{mn}    
+                    \end{bmatrix}\right )
+                    & \oplus 
+                    \left(\begin{bmatrix}
+                        b_{11} & \cdots & b_{m1} \\
+                        \vdots & \ddots & \vdots \\
+                        b_{1n} & \cdots & b_{mn}    
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                        d_{11} & \cdots & d_{m1} \\
+                        \vdots & \ddots & \vdots \\
+                        d_{1n} & \cdots & d_{mn}    
+                    \end{bmatrix}\right )
+                \end{align*}
+            \end{center}
+        So, doing matrix multiplication, 
+            \begin{center}
+                \begin{align*}
+                    \begin{bmatrix}
+                        a_{11}c_{11} + a_{m1}c_{1n} & \cdots & a_{11}c_{m1} + a_{m1}c_{mn} \\
+                        \vdots & \ddots & \vdots \\
+                        a_{1n}c_{11} + a_{mn}c_{1n} & \cdots & a_{1n}c_{m1} + a_{mn}c_{mn}
+                    \end{bmatrix}
+                    & \oplus
+                    \begin{bmatrix}
+                        b_{11}d_{11} + b_{m1}d_{1n} & \cdots & b_{11}d_{m1} + b_{m1}d_{mn} \\
+                        \vdots & \ddots & \vdots \\
+                        b_{1n}d_{11} + b_{mn}d_{1n} & \cdots & b_{1n}d_{m1} + b_{mn}d_{mn}
+                    \end{bmatrix} 
+                \end{align*}
+            \end{center}
+        Then, evaluating the Cross Operation, 
+            \begin{center}
+                \begin{align*}
+                    \begin{bmatrix}
+                        a_{11}c_{11}BD + a_{m1}c_{1n}BD & \cdots & a_{11}c_{m1}BD + a_{m1}c_{mn}BD \\
+                        \vdots & \ddots & \vdots \\
+                        a_{1n}c_{11}BD + a_{mn}c_{1n}BD & \cdots & a_{1n}c_{m1}BD + a_{mn}c_{mn}BD
+                    \end{bmatrix}   
+                \end{align*}
+            \end{center}
+        So, 
+            \begin{center}
+                \begin{align*}
+                    \begin{bmatrix}
+                        a_{11}Bc_{11}D + a_{m1}Bc_{1n}D & \cdots & a_{11}Bc_{m1}D + a_{m1}Bc_{mn}D \\
+                        \vdots & \ddots & \vdots \\
+                        a_{1n}Bc_{11}D + a_{mn}Bc_{1n}D & \cdots & a_{1n}Bc_{m1}D + a_{mn}Bc_{mn}D
+                    \end{bmatrix} \\
+                    =
+                    \begin{bmatrix}
+                        a_{11}c_{11}BD + a_{m1}c_{1n}BD & \cdots & a_{11}c_{m1}BD + a_{m1}c_{mn}BD \\
+                        \vdots & \ddots & \vdots \\
+                        a_{1n}c_{11}BD + a_{mn}c_{1n}BD & \cdots & a_{1n}c_{m1}BD + a_{mn}c_{mn}BD
+                    \end{bmatrix}
+                \end{align*}
+            \end{center}
+    \end{proof}
         \item Show that both products are distributive over addition. \\\\
        To show that $A \circ (B+C) = (A \circ B)+(A \circ C)$ we can denote $A = a_{ij}$, $B = b_{ij}$, and $C = c_{ij}$. Then the left side of the equation will equal $a_{ij}(b_{ij} + c_{ij})$. The right side will then equal $(a_{ij} b_{ij}) + (a_{ij} c_{ij})$. If we factor out $a_{ij}$, then the equation will write as $a_{ij}(b_{ij} + c_{ij})$. This is equivalent to the left side of the equation showing they are equivalent.\\
         
