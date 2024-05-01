@@ -488,6 +488,205 @@ Under the $\circ$ operation, we know that the inverse of each component $a$ of m
         2 & 6
     \end{bmatrix}$.
 
+    \begin{proof}
+        Immediately, we know that if $B = I$ then, $AB = BA$ and if $B = [0]$, then $AB = BA$. Then, to find all matrices $B$ that commute with $A$, first let,
+            \begin{center}
+                \begin{align*}
+                    B &= \begin{bmatrix}
+                             a & b \\
+                             c & d
+                         \end{bmatrix}.
+                \end{align*}
+            \end{center}
+        So, to if $B$ were to commute with $A$, this means, 
+            \begin{center}
+                \begin{align*}
+                    AB = BA.
+                \end{align*}
+            \end{center}
+        So, since we know $A$ and $B$, then, 
+            \begin{center}
+                \begin{align*}
+                    \begin{bmatrix}
+                        1 & 3 \\
+                        2 & 6
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                        a & b \\
+                        c & d
+                    \end{bmatrix}
+                    &=
+                    \begin{bmatrix}
+                        a & b \\
+                        c & d
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                        1 & 3 \\
+                        2 & 6
+                    \end{bmatrix}
+                \end{align*}
+            \end{center}
+        So, doing matrix multiplication, we see
+            \begin{center}
+                \begin{align*}
+                    \begin{bmatrix}
+                        a+3c & b+3d \\
+                        2a+6c & 2b + 6b
+                    \end{bmatrix}
+                    &= 
+                    \begin{bmatrix}
+                        a+2b & 3a+6b \\
+                        c+2d & 3c+6b
+                    \end{bmatrix}
+                \end{align*}
+            \end{center}
+        We notice that this creates a system of equations. So,
+            \begin{center}
+                \begin{align*}
+                    a+3c &= a+2b \\
+                    b+3d &= 3a+6b \\
+                    2a+6c &= c+2d \\
+                    2b + 6b &= 3c+6b
+                \end{align*}
+            \end{center}
+        Solving the first equation, we see,
+            \begin{center}
+                \begin{align*}
+                    a+3c &= a+2b \\ 
+                    3c &= 2b \\
+                    c = \frac{2}{3}b
+                \end{align*}
+            \end{center}
+        Then, solving the last equation, we see,
+            \begin{center}
+                \begin{align*}
+                    2b + 6b &= 3c+6b \\
+                    2b &= 3c \\
+                    c &= \frac{2}{3}b
+                \end{align*}
+            \end{center}
+        Then solving the second equation, we see,
+            \begin{center}
+                \begin{align*}
+                    b+3d &= 3a+6b \\
+                    3d &= 3a+5b \\
+                    d &= a + \frac{5}{3}b
+                \end{align*}
+            \end{center}
+        Though, when we solve the third equation, we notice, 
+            \begin{center}
+                \begin{align*}
+                    2a+6c &= c+2d \\
+                    2a+5c &= 2d \\
+                    a + \frac{5}{2}c &= d
+                \end{align*}
+            \end{center}
+        So, we want $d$ in terms of $a$ and $d$. Recall that $c = \frac{2}{3}b$. So,
+            \begin{center}
+                \begin{align*}
+                    d &= a + \frac{5}{2}(\frac{2}{3}b)\\
+                    d &= a + \frac{3}{2}b
+                \end{align*}
+            \end{center}
+        We notice that these two are different. So, we can create two matrices and test values to see which matrix commutes. So, our matrices would be, 
+            \begin{center}
+                \begin{align*}
+                    B_1 = 
+                    \begin{bmatrix}
+                        a & b \\
+                        \frac{2}{3}b & a + \frac{5}{3}b
+                    \end{bmatrix}
+                    \quad \quad & \text{and} \quad \quad
+                    B_2 =
+                    \begin{bmatrix}
+                        a & b \\
+                        \frac{2}{3}b & a + \frac{3}{2}b
+                    \end{bmatrix}
+                \end{align*}
+            \end{center}
+        So, let $a = 1$ and $b = 3$ to find our matrices $B_1$ and $B_2$,
+            \begin{center}
+                \begin{align*}
+                    B_1 = 
+                    \begin{bmatrix}
+                        1 & 3 \\
+                        2 & 6
+                    \end{bmatrix}
+                    \quad \quad & \text{and} \quad \quad
+                    B_2 =
+                    \begin{bmatrix}
+                        1 & 3 \\
+                        2 & \frac{11}{2}
+                    \end{bmatrix}                    
+                \end{align*}
+            \end{center}
+        Then, we can check if these matrices commute with $A$. First, let's try $B_1$,
+            \begin{center}
+                \begin{align*}
+                    AB_1 &= B_1A \\
+                    \begin{bmatrix}
+                        1 & 3 \\
+                        2 & 6
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                        1 & 3 \\
+                        2 & 6
+                    \end{bmatrix}
+                    & =
+                    \begin{bmatrix}
+                        1 & 3 \\
+                        2 & 6
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                        1 & 3 \\
+                        2 & 6
+                    \end{bmatrix} \\
+                    \begin{bmatrix}
+                        7 & 21 \\
+                        14 & 42
+                    \end{bmatrix}
+                    & = 
+                    \begin{bmatrix}
+                        7 & 21 \\
+                        14 & 42
+                    \end{bmatrix}
+                \end{align*}
+            \end{center}
+        So, $B_1$ commutes with $A$. Next, we can check $B_2$, 
+            \begin{center}
+                \begin{align*}
+                   AB_2 &= B_2A \\
+                    \begin{bmatrix}
+                        1 & 3 \\
+                        2 & 6
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                        1 & 3 \\
+                        2 & \frac{11}{2}
+                    \end{bmatrix}
+                    & =
+                    \begin{bmatrix}
+                        1 & 3 \\
+                        2 & \frac{11}{2}
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                        1 & 3 \\
+                        2 & 6
+                    \end{bmatrix} \\
+                    \begin{bmatrix}
+                        7 & \frac{39}{2} \\
+                        14 & 39
+                    \end{bmatrix}
+                    & = 
+                    \begin{bmatrix}
+                        7 & 21 \\
+                        13 & 39
+                    \end{bmatrix} 
+                \end{align*}
+            \end{center}
+        So, we see that $B_2$ does not commute with $A$. This means that if we let $a \text{and} b$ be any integer, then our matrix $B_1$ will commute with $A$. Therefore, we have found the three cases to consider when finding all matrices $B$ that commute with $A$.
+    \end{proof}
+
 \section{Lighting Games}
     \textbf{Game 1:} A row of five light bulbs is controlled by five switches (Labeled A,B,C,D,E). Each switch changes
     the state (on or off) of the light directly above it and the states of the lights immediately adjacent to the
